@@ -30,6 +30,8 @@ body {
 
 }
 
+
+
  /* ================================================== */
  /*                    NAV BAR                         */
  /* ================================================== */
@@ -40,8 +42,6 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 10px 20px 0px;
-  padding: 10px 20px;
 
   background-color: #2085d8;
 
@@ -61,6 +61,31 @@ ul {
 ul li {
   margin-right: 20px;
 }
+
+.nav-bar li {
+  display: inline-block;
+  line-height: 40px;
+  padding: 0px 15px;
+  margin: 0px;
+}
+
+ .nav-bar li:hover {
+   background-color: #ff8936;
+   transition: 1s;
+ }
+
+ .nav-bar li a {
+  text-decoration: none;
+  color: whitesmoke;
+  font-weight: 400;
+}
+
+
+.right li {
+  float: right;
+  color: whitesmoke;
+}
+
 
 
  /* ================================================== */

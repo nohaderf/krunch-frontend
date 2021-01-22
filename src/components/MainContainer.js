@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import { Route, Switch } from "react-router-dom";
 import ExercisePage from "./ExercisePage"
 import WorkoutsPage from "./WorkoutsPage"
@@ -6,6 +6,15 @@ import Home from "./Home";
 
 
 function MainContainer(){
+
+    const [exercises, setExercises] = useState([])
+    
+    useEffect(() => {
+        fetch(`http://localhost:3000/exercises`)
+        .then(r => r.json())
+        .then(setExercises)
+    }, [])
+
     return (
         <>
         <div className="main-container">
@@ -16,7 +25,7 @@ function MainContainer(){
                 <Home />
             </Route>
             <Route path="/exercises">
-                <ExercisePage/>    
+                <ExercisePage exercises={exercises} />    
             </Route>
             <Route path="/workouts">
                 <WorkoutsPage/>
@@ -27,7 +36,6 @@ function MainContainer(){
 
         </Switch>
         </>
-        // <ExercisePage />
     )
 }
 

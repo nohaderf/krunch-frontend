@@ -3,20 +3,27 @@ import { NavLink } from "react-router-dom";
 
 function NavBar(){
     return (
+    
         <nav className= "nav-bar">
-            <nav>
-                <NavLink exact to="/">
-                    Home    
-                </NavLink>
-                <NavLink exact to="/exercises">
-                    Exercises    
-                </NavLink>
-                <NavLink exact to="/workouts">
-                    Workouts    
-                </NavLink>
+            <ul>
+                <li>
+                    <NavLink exact to="/">
+                        Home    
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink exact to="/exercises">
+                        Exercises    
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink exact to="/workouts">
+                        Workouts    
+                    </NavLink>
+                </li>
                
                 <li className="right">Profile</li> 
-            </nav>
+            </ul>
         </nav>
     )
 }

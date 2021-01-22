@@ -1,10 +1,11 @@
 import React from "react"
 import ExerciseCard from "./ExerciseCard"
 
-function ExerciseList(){
+function ExerciseList({ exercise }){
+
     return (
         <div className="exercise-list">
-            <ExerciseCard />
+            <ExerciseCard oneExercise={exercise} />
         </div>
         
     )
