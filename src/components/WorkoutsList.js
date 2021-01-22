@@ -1,12 +1,12 @@
 import React from "react"
-import WorkoutsCard from "./WorkoutsCard"
+import WorkoutCard from "./WorkoutCard"
 
 function WorkoutsList(){
     return (
         <div className="workouts-list">
             <h1>Workouts List</h1>
             {/* <Search /> */}
-            <WorkoutsCard />
+            <WorkoutCard />
         </div>
         
     )

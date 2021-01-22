@@ -1,12 +1,12 @@
 import React from "react"
 
-function WorkoutsCard(){
+function WorkoutCard(){
     return (
         <div className="workouts-card">
-            <h1>Workouts Card</h1>
+            <h1>Workout Card</h1>
         </div>
         
     )
 }
 
-export default WorkoutsCard;
+export default WorkoutCard;
