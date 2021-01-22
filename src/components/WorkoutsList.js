@@ -1,12 +1,21 @@
 import React from "react"
 import WorkoutCard from "./WorkoutCard"
 
-function WorkoutsList(){
+function WorkoutsList({allWorkouts}){
+
+    const workoutsObj = allWorkouts.map(workout => {
+        return <WorkoutCard
+                    workout = {workout}
+                    key = {workout.id}
+            />
+    })
+
+
     return (
         <div className="workouts-list">
-            <h1>Workouts List</h1>
+            <h1>All Workouts </h1>
             {/* <Search /> */}
-            <WorkoutCard />
+            <p>{workoutsObj}</p>
         </div>
         
     )
