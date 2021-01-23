@@ -1,16 +1,24 @@
-import React from "react"
+import React, { useState } from "react"
 import ExerciseList from "./ExerciseList"
+import Search from "./Search"
 
 function ExercisePage({ exercises }){
+    const [search, setSearch] = useState("")
 
-    const exerciseList = exercises.map(exercise => {
-        return <ExerciseList key={exercise.id} exercise={exercise} />
+    const filterExercises = exercises.filter(oneExercise => {
+        return oneExercise.exercise.toLowerCase().includes(search.toLowerCase())
     })
+
     return (
         <div className="exercise-page">
-            <h1>Exercise Page</h1>
-            {/* <Search /> */}
-            {exerciseList}
+            <h1>EXERCISES</h1>
+            <div className="search-bar">
+                <Search search={search} onSearchChange={setSearch}/>
+            </div>
+            <div className="exercise-list">
+                <ExerciseList exercises={filterExercises} />
+            </div>
+                
         </div>
         
     )

@@ -8,21 +8,21 @@ function NavBar(){
             <ul>
                 <li>
                     <NavLink exact to="/">
-                        Home    
+                        <strong>HOME</strong>  
                     </NavLink>
                 </li>
                 <li>
                     <NavLink exact to="/exercises">
-                        Exercises    
+                    <strong>EXERCISES</strong>  
                     </NavLink>
                 </li>
                 <li>
                     <NavLink exact to="/workouts">
-                        Workouts    
+                    <strong>WORKOUTS</strong>      
                     </NavLink>
                 </li>
                
-                <li className="right">Profile</li> 
+                <li className="right"><strong>PROFILE</strong></li> 
             </ul>
         </nav>
     )

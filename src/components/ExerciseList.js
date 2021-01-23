@@ -1,14 +1,15 @@
 import React from "react"
 import ExerciseCard from "./ExerciseCard"
 
-function ExerciseList({ exercise }){
+function ExerciseList({ exercises }){
+
+    const exerciseCard = exercises.map(exercise => {
+        return <ExerciseCard key={exercise.id} oneExercise={exercise} />
+    })
 
     return (
-        <div className="exercise-list">
-            <ExerciseCard oneExercise={exercise} />
-        </div>
-        
-    )
+        <ul className="cards">{exerciseCard}</ul>
+      );
 }
 
 export default ExerciseList;
