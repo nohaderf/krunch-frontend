@@ -11,7 +11,7 @@ function ExercisePage({ exercises }){
 
     return (
         <div className="exercise-page">
-            <h1>EXERCISES</h1>
+            <h1 className="exercise-header">&nbsp;EXERCISES</h1>
             <div className="search-bar">
                 <Search search={search} onSearchChange={setSearch}/>
             </div>

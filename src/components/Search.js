@@ -4,11 +4,11 @@ function Search({ search, onSearchChange }) {
 
   return (
     <div className="search-bar">
-      <label htmlFor="search">Search </label>
       <input
+        className="search"
         type="text"
         id="search"
-        placeholder="Type a name to search..."
+        placeholder="&#128270;  search..."
         value={search}
         onChange={(e) => onSearchChange(e.target.value)}
       />

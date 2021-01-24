@@ -16,16 +16,19 @@ body {
   box-sizing: inherit;
 }
 
+ /* ================================================== */
+ /*                       LOGO                         */
+ /* ================================================== */
+  
 img.logo {
   align-items: center;
   display: block;
   max-height: 10%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 10px;
+  margin-left: 30px;
+  margin-top: 20px;
   margin-bottom: 10px;
   max-width: 200px;
-  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  animation: shake 0.8s cubic-bezier(.36,.07,.19,.97) both;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   perspective: 1000px;
@@ -49,6 +52,25 @@ img.logo {
   }
 }
 
+.logo:hover {
+  animation: shake 0.5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
  /* ================================================== */
  /*                    NAV BAR                         */
  /* ================================================== */
@@ -56,14 +78,23 @@ img.logo {
 
 nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: left;
   align-items: center;
+  background-color:transparent;
+  /* background-color: #2085d8; */
+  position: fixed;
+  top: 100;
+  width: 100%;
+}
 
-  background-color: #2085d8;
+.nav-bar.active {
+  background: #1a1a1ae0;
+}
 
-  @media (min-width: 600px){
-      padding: 20px;
-  }
+.nav-bar a.active {
+  background-color: #ff8936;
+  padding: 10px 10px;
+  color: white;
 }
 
 ul {
@@ -71,7 +102,6 @@ ul {
   margin: 0px;
   padding: 0px;
   display: flex;
-  align-items: center;
 }
 
 ul li {
@@ -81,12 +111,13 @@ ul li {
 .nav-bar li {
   display: inline-block;
   line-height: 40px;
-  padding: 0px 15px;
-  margin: 0px;
+  padding: 0px 0px;
+  margin: 0px 15px;
 }
 
  .nav-bar li:hover {
    background-color: #ff8936;
+   padding: 0px 10px;
    transition: 1s;
  }
 
@@ -110,26 +141,42 @@ ul li {
   max-width: 100%;
 }
 
+.slogan { 
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 3em;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  letter-spacing: 2px;
+  text-shadow: 10px 2px #0000008f;
+}
+
  /* ================================================== */
  /*                    EXERCISE PAGE                   */
  /* ================================================== */
   
 .exercise-page {
-  margin: 0px 20px;
-  /* justify-content: space-between; */
-  /* align-items: center; */
-  /* display: flex; */
-  /* flex-wrap: wrap; */
-}
-
-.exercise-list {
-  justify-content: center;
-  display: flex;
-  /* justify-content: space-between; */
+  margin: -25px 20px 0px 0px;
+  justify-content: space-between;
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  margin: 0px 20px;
+}
+
+.exercise-header {
+  letter-spacing: 1em;
+  font-size: 2em;
+  background-color: #2085d8;
+}
+ /* ================================================== */
+ /*                     SEARCH BAR                     */
+ /* ================================================== */
+
+.search-bar {
+  margin: 10px 0px ;
 }
 
  /* ================================================== */
@@ -138,9 +185,7 @@ ul li {
   
  .cards {
   display: flex;
-  /* justify-content: space-between; */
-  /* align-items: center; */
-  /* display: flex; */
+  justify-content: center;
   flex-wrap: wrap;
 
 }
@@ -149,104 +194,56 @@ ul li {
  /*                    EXERCISE CARD                   */
  /* ================================================== */
 
- .exercise-card {
-  background-color: DodgerBlue;
-  background-color: #494949;
-  max-width: 300px;
-  height: 400px;
+.exercise-card {
+  background-color: #ff9901;
+  width: 300px;
+  height: 450px;
   margin: 10px;
-  padding: 20px;
-  border-radius: 2px;
+  border-radius: 10px;
 }
 
 .image-ex {
-   border: 1px solid #ddd;
-   /* background-color: #ff8936; */
-   padding: 5px;
-   width: 250px;
-   height: auto !important;
-   overflow: hidden; 
- }
- 
- img:hover {
-   box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
- }
-
- figure{
-  width:300px; /*container-width*/
-  overflow:hidden; /*hide bounds of image */
-  margin:0;   /*reset margin of figure tag*/
-}
-figure img{
-  display:block; /*remove inline-block spaces*/
-  width:100%; /*make image streatch*/
+  background-color: #313131;
+  /* padding: 10px 0px; */
+  width: 300px;
+  /* box-shadow: 3px 1px 0px 2px, 0px -1px 0px 2px rgba(0, 0, 0, 0.62); */
 }
 
+.front-content {
+  display: block;
+  text-align: center;
+  line-height: 0.5;
+  }
 
+.back-content {
+  padding: 10px;
+}
+
+.back-topic {
+  font-weight: 800;
+  color: #313131;
+}
+
+.name {
+    font-size: 1.5em;
+    font-weight: bolder;
+    text-transform: uppercase;
+    /* color:#ff8936; */
+    color: #313131;
+}
 
  /* ================================================== */
- /*                        ARROWS                      */
+ /*                        ARROW                       */
  /* ================================================== */
 
-
-
-
-#arrowAnim {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.arrow {
-  width: 5vw;
-  height: 5vw;
-  border: 2.5vw solid;
-  border-color: black transparent transparent black;
-  transform: rotate(225deg);
-}
-
-
-.arrowSliding {
-  position: absolute;
-  -webkit-animation: slide 4s infinite ease; 
-          animation: slide 4s infinite ease;
-}
-
-.delay1 {
-  -webkit-animation-delay: 1s; 
-    animation-delay: 1s;
-}
-.delay2 {
-  -webkit-animation-delay: 2s; 
-    animation-delay: 2s;
-}
-.delay3 {
-  -webkit-animation-delay: 3s; 
-    animation-delay: 3s;
-}
-
-@-webkit-keyframes slide {
-    0% { opacity:0; transform: translateX(15vw); }	
-   20% { opacity:1; transform: translateX(9vw); }	
-   80% { opacity:1; transform: translateX(-9vw); }	
-  100% { opacity:0; transform: translateX(-15vw); }	
-}
-@keyframes slide {
-    0% { opacity:0; transform: translateX(15vw); }	
-   20% { opacity:1; transform: translateX(9vw); }	
-   80% { opacity:1; transform: translateX(-9vw); }	
-  100% { opacity:0; transform: translateX(-15vw); }	
-}
-
-/* ------- */
 
 .downArrow{
 	position: fixed;
-	bottom: 15%;
-	left: 50%;
+	bottom: 1%;
+  left: 50%;
+  filter: invert(1);
 }
+
 .bounce {
 	-moz-animation: bounce 3s infinite;
 	-webkit-animation: bounce 3s infinite;
@@ -300,16 +297,21 @@ figure img{
     transform: translateY(-15px);
   }
 }
-/* Demo Purpose Only*/
-.demo {
-  font-family: 'Raleway', sans-serif;
-	color:#fff;
-    display: block;
-    margin: 0 auto;
-    padding: 15px 0;
-    text-align: center;
+
+ /* ================================================== */
+ /*                     SCROLL BAR                     */
+ /* ================================================== */
+
+
+body::-webkit-scrollbar {
+  width: 1em;
 }
-.demo a{
-  font-family: 'Raleway', sans-serif;
-color: #2ecc71;		
+ 
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+ 
+body::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
 }
