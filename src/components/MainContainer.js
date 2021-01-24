@@ -5,6 +5,8 @@ import WorkoutsPage from "./WorkoutsPage"
 import Home from "./Home";
 
 import main from '../main.jpg';
+import WorkoutDetail from "./WorkoutDetail";
+import ExerciseDetail from "./ExerciseDetail";
 
 
 function MainContainer(){
@@ -28,12 +30,20 @@ function MainContainer(){
             <Route exact path="/">
                 <Home />
             </Route>
+            <Route path="/exercises/:id">
+                <ExerciseDetail/>    
+            </Route>
             <Route path="/exercises">
                 <ExercisePage exercises={exercises} />    
+            </Route>
+            <Route exact path="/workouts/:id">
+                <WorkoutDetail />
             </Route>
             <Route path="/workouts">
                 <WorkoutsPage/>
             </Route>
+
+
             {/* <Route path="*">
                 <Redirect to="/" />
             </Route> */}
