@@ -22,9 +22,6 @@ function WorkoutDetail(){
     
     const {date, notes, name, exercises} = workout
 
-
-    console.log(workout)
-
     const exerciseObj = () => {
         if (exercises[0]) {
             return exercises.map(exercise => {
@@ -33,7 +30,16 @@ function WorkoutDetail(){
                              {exercise.exercise}
                             </Link>
                         </li>})}
-        else {return <p>Add some exercise to this workout!</p>}
+        else {return <p>You should add some exercises to this workout!</p>}
+    }
+
+    function handleDelete(){
+        fetch(`http://localhost:3000/workouts/${params.id}`, {
+            method: "DELETE"
+        })
+        .then(r => r.json())
+        .then(console.log("we want this to rerender here"))
+        // we want this to rerender
     }
 
     
@@ -43,6 +49,16 @@ function WorkoutDetail(){
         <h2>You did the following workouts:</h2>
         <ul>{exerciseObj()}</ul>
         <p>Notes on the day: {notes}</p>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <p>
+            <Link to={`/workouts/${params.id}/edit`}>
+                Edit 
+            </Link>
+        </p>
+        <button onClick={handleDelete}>Delete this Workout</button>
         </>
     )
     

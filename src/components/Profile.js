@@ -20,12 +20,14 @@ function Profile(){
     const {name, age, bio, height, weight} = user
 
     return (
-        <nav className= "profile">
+        <nav className= "user">
            <h1>Your Profile</h1> 
            <br></br>
            <h5>{name}</h5>
            <p>Height: {height}</p>
            <p>Weight: {weight}</p>
+           <p>Age: {age}</p>
+           <p>Bio: {bio}</p>
         </nav>
     )
 }

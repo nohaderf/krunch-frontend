@@ -6,6 +6,8 @@ import Home from "./Home";
 
 import main from '../main.jpg';
 import WorkoutDetail from "./WorkoutRelated/WorkoutDetail";
+import EditWorkout from "./WorkoutRelated/WorkoutForm";
+
 import ExerciseDetail from "./ExerciseRelated/ExerciseDetail";
 import Profile from "./Profile";
 
@@ -31,16 +33,22 @@ function MainContainer(){
             <Route exact path="/">
                 <Home />
             </Route>
+            <Route exact path="/workouts/:id/edit">
+                <EditWorkout />
+            </Route>
             <Route path="/exercises/:id">
                 <ExerciseDetail/>    
             </Route>
             <Route path="/exercises">
                 <ExercisePage exercises={exercises} />    
             </Route>
+            <Route exact path="/workouts/new">
+                <EditWorkout/>
+            </Route>
             <Route exact path="/workouts/:id">
                 <WorkoutDetail />
             </Route>
-            <Route path="/workouts">
+            <Route exact path="/workouts">
                 <WorkoutsPage/>
             </Route>
             <Route path="/profile">

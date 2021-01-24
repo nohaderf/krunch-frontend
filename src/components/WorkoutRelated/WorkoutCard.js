@@ -19,9 +19,9 @@ function WorkoutCard({workout}){
 
     return (
         <div className="workouts-card">
-            <h1>
-                <Link to={`/workouts/${id}`}>{name}</Link>
-            </h1>
+            <h2>
+                <Link to={`/workouts/${id}`}>{name}</Link> on {date}
+            </h2>
             <ul>{exerciseObj()}</ul>
             
         </div>

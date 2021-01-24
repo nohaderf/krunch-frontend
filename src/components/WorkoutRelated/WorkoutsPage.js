@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react"
+import {Link} from "react-router-dom"
 import WorkoutsList from "./WorkoutsList"
 import Search from "../Search"
 
@@ -31,6 +32,9 @@ function WorkoutsPage(){
             </div>
             {/* <h1>Workouts Page</h1> */}
             <WorkoutsList allWorkouts={filterWorkouts}/>
+            <p><Link to={`/workouts/new`}>
+                Add new workout 
+            </Link></p>
         </div>
         
     )

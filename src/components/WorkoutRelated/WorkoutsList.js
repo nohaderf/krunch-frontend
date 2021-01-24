@@ -14,7 +14,6 @@ function WorkoutsList({allWorkouts}){
     return (
         <div className="workouts-list">
             <h1>Your Workouts </h1>
-            {/* <Search /> */}
             <p>{workoutsObj}</p>
         </div>
         
