@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import ExerciseList from "./ExerciseList"
-import Search from "./Search"
+import Search from "../Search"
 
 function ExercisePage({ exercises }){
     const [search, setSearch] = useState("")

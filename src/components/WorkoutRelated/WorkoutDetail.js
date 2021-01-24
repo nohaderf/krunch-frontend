@@ -28,7 +28,7 @@ function WorkoutDetail(){
     const exerciseObj = () => {
         if (exercises[0]) {
             return exercises.map(exercise => {
-                return <li> 
+                return <li key={exercise.id}> 
                             <Link to={`/exercises/${exercise.id}`}>
                              {exercise.exercise}
                             </Link>
@@ -40,7 +40,7 @@ function WorkoutDetail(){
 
     return(<>
         <h1> {name.toUpperCase()} on {date}</h1>
-        <h2>{date}</h2>
+        <h2>You did the following workouts:</h2>
         <ul>{exerciseObj()}</ul>
         <p>Notes on the day: {notes}</p>
         </>

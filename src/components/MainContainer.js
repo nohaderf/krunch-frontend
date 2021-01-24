@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react"
 import { Route, Switch } from "react-router-dom";
-import ExercisePage from "./ExercisePage"
-import WorkoutsPage from "./WorkoutsPage"
+import ExercisePage from "./ExerciseRelated/ExercisePage"
+import WorkoutsPage from "./WorkoutRelated/WorkoutsPage"
 import Home from "./Home";
 
 import main from '../main.jpg';
-import WorkoutDetail from "./WorkoutDetail";
-import ExerciseDetail from "./ExerciseDetail";
+import WorkoutDetail from "./WorkoutRelated/WorkoutDetail";
+import ExerciseDetail from "./ExerciseRelated/ExerciseDetail";
 
 
 function MainContainer(){

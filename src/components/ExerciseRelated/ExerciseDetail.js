@@ -20,7 +20,7 @@ function ExerciseDetail(){
 
     if (!isLoaded) return <h2>Loading...</h2>;
     
-    const {exercise, equipment, exerciseType, majorMuscle} = selectedExercise
+    const {exercise, equipment, exerciseType, majorMuscle, example} = selectedExercise
 
 
     console.log(selectedExercise)
@@ -33,7 +33,9 @@ function ExerciseDetail(){
         <h1> Exercise Detail </h1>
         <h1>{exercise}</h1>
         <p>You will need {equipment}</p>
-        
+        <p>Type of Exercise: {exerciseType}</p>
+        <br></br>
+        <img src={example} alt={exercise}></img>
         </>
     )
     

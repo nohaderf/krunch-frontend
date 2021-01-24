@@ -11,7 +11,7 @@ function WorkoutCard({workout}){
     const exerciseObj = () => {
         if (exercises[0]) {
             return exercises.map(exercise => {
-                return <li>
+                return <li key={exercise.id}>
                             {exercise.exercise}
                         </li>})}
         else {return <p>Add some exercise to this workout!</p>}

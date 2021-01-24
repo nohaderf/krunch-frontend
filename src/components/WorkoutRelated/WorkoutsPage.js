@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react"
 import WorkoutsList from "./WorkoutsList"
-import Search from "./Search"
+import Search from "../Search"
 
 
 function WorkoutsPage(){
