@@ -7,6 +7,7 @@ import Home from "./Home";
 import main from '../main.jpg';
 import WorkoutDetail from "./WorkoutRelated/WorkoutDetail";
 import ExerciseDetail from "./ExerciseRelated/ExerciseDetail";
+import Profile from "./Profile";
 
 
 function MainContainer(){
@@ -42,7 +43,9 @@ function MainContainer(){
             <Route path="/workouts">
                 <WorkoutsPage/>
             </Route>
-
+            <Route path="/profile">
+                <Profile/>
+            </Route>
 
             {/* <Route path="*">
                 <Redirect to="/" />

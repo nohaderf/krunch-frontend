@@ -36,7 +36,11 @@ function NavBar(){
                     </NavLink>
                 </li>
                
-                <li className="right"><strong>PROFILE</strong></li> 
+                <li>
+                    <NavLink exact to="/profile">
+                    <strong>PROFILE</strong>      
+                    </NavLink>
+                </li>            
             </ul>
         </nav>
     )
