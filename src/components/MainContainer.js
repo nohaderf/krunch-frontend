@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { Route, Switch } from "react-router-dom";
+
 import ExercisePage from "./ExerciseRelated/ExercisePage"
 import WorkoutsPage from "./WorkoutRelated/WorkoutsPage"
 import Home from "./Home";
@@ -16,6 +17,7 @@ import WorkoutEditForm from "./WorkoutRelated/WorkoutEditForm";
 function MainContainer(){
 
     const [exercises, setExercises] = useState([])
+    const [allWorkouts, setAllWorkouts] = useState([])
     
     
     useEffect(() => {
@@ -24,7 +26,21 @@ function MainContainer(){
         .then(setExercises)
     }, [])
 
-   
+    // console.log(process.env.REACT_APP_API_BASE_URL)
+    useEffect(() => {
+        fetch(`${process.env.REACT_APP_API_BASE_URL}/workouts`)
+        .then(r => r.json())
+        .then(setAllWorkouts)
+    }, [])
+
+
+
+    function handleDeleteWorkout(deleteWorkout) {
+        const updateWorkoutsList = allWorkouts.filter(workout => {
+            return workout.id !== deleteWorkout.id 
+        })
+        setAllWorkouts(updateWorkoutsList)
+    }
 
     return (
         <>
@@ -50,10 +66,10 @@ function MainContainer(){
                 <EditWorkout/>
             </Route>
             <Route exact path="/workouts/:id">
-                <WorkoutDetail/>
+                <WorkoutDetail onDeleteClick={handleDeleteWorkout} />
             </Route>
             <Route exact path="/workouts">
-                <WorkoutsPage/>
+                <WorkoutsPage allWorkouts={allWorkouts}/>
             </Route>
             <Route path="/profile">
                 <Profile/>

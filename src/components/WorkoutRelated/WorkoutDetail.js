@@ -1,11 +1,14 @@
-import React, { useEffect, useState} from "react"
-import {Link, useParams, useHistory} from "react-router-dom"
+import React, { useEffect, useState } from "react"
+import {Link, useParams, useHistory } from "react-router-dom"
 
-function WorkoutDetail({addExercise}){
+function WorkoutDetail({ onDeleteClick }){
     const [workout, setWorkout] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false)
     const params = useParams();
-    const history = useHistory()
+    const history = useHistory();
+
+    // console.log(params)
+    
     
     useEffect(() => {
         fetch(`${process.env.REACT_APP_API_BASE_URL}/workouts/${params.id}`)
@@ -34,12 +37,16 @@ function WorkoutDetail({addExercise}){
     }
 
     function handleDelete(){
+        onDeleteClick(workout)
         fetch(`http://localhost:3000/workouts/${params.id}`, {
             method: "DELETE"
         })
         .then(r => r.json())
-        .then(console.log(history.push(`/workouts`)))
+        .then(() => {
+            history.push(`/workouts`)
+        })
     }
+
 
     return(<>
         <h1> {name.toUpperCase()} on {date}</h1>

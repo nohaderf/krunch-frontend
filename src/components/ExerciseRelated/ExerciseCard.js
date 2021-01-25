@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Card } from "semantic-ui-react";
 import {useHistory} from "react-router-dom"
+
 
 function ExerciseCard({ oneExercise, wktID }){
     const { id, exercise, equipment, exerciseType, majorMuscle, minorMuscle, example, notes, modifications } = oneExercise
@@ -9,7 +9,7 @@ function ExerciseCard({ oneExercise, wktID }){
 
     function handleSpritesToggle(){
         setIsFront(!isFront)
-      }
+    }
 
     function handleClick(){
         fetch(`${process.env.REACT_APP_API_BASE_URL}/workout_exercises`,{
@@ -38,8 +38,8 @@ function ExerciseCard({ oneExercise, wktID }){
                 <p><span className="back-topic">Equiment:</span> {equipment}</p>
                 <p><span className="back-topic">Major Muscle:</span> {majorMuscle}</p>
                 <p><span className="back-topic">Minor Muscle:</span> {minorMuscle}</p>
-                <p><span className="back-topic">Tips:</span> {notes}</p>
-                <p><span className="back-topic">Modifications:</span> {modifications}</p>
+                { notes ? <p><span className="back-topic">Tips:</span> {notes}</p> : "" }
+                { modifications ? <p><span className="back-topic">Modifications:</span> {modifications}</p> : "" }
                 {wktID? <button onClick={handleClick}>Add to workout</button> : null}
             </div>  }
         </div>

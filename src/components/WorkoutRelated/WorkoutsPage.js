@@ -1,35 +1,31 @@
-import React, {useState, useEffect} from "react"
+import React, { useState } from "react"
 import {Link} from "react-router-dom"
 import WorkoutsList from "./WorkoutsList"
 import Search from "../Search"
 
 
-function WorkoutsPage(){
+function WorkoutsPage({ allWorkouts }){
     const [search, setSearch] = useState("")
-    const [allWorkouts, setAllWorkouts] = useState([])
-
-      useEffect(() => {
-        fetch(`${process.env.REACT_APP_API_BASE_URL}/workouts`)
-        .then(r => r.json())
-        .then(setAllWorkouts)
-    }, [])
 
     const filterWorkouts = allWorkouts.filter(workout => {
         return workout.name.toLowerCase().includes(search.toLowerCase())
     })
-
+    
     return (
-        <div className="workouts-page">
-            <h1 className="exercise-header">&nbsp;WORKOUTS</h1>
+        <>
+        <div className="page-div">
+            <h1 className="page-header">&nbsp;WORKOUTS</h1>
             <div className="search-bar">
                 <Search search={search} onSearchChange={setSearch}/>
             </div>
-            {/* <h1>Workouts Page</h1> */}
-            <WorkoutsList allWorkouts={filterWorkouts}/>
+         </div>
+         <div className="workout-div">
+            <WorkoutsList allWorkouts={filterWorkouts} />
             <p><Link to={`/workouts/new`}>
                 Add new workout 
             </Link></p>
         </div>
+        </>
     )
 }
 
