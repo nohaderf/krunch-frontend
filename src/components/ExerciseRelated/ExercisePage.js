@@ -9,6 +9,7 @@ function ExercisePage({ exercises }){
         return oneExercise.exercise.toLowerCase().includes(search.toLowerCase())
     })
 
+
     return (
         <div className="page-div">
             <h1 className="page-header">&nbsp;EXERCISES</h1>

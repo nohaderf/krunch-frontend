@@ -22,7 +22,7 @@ function WorkoutCard({workout}){
             <h2>
                 <Link to={`/workouts/${id}`}>{name}</Link> on {date}
             </h2>
-            <ul>{exerciseObj()}</ul>
+            {/* <ul>{exerciseObj()}</ul> */}
             
         </div>
         

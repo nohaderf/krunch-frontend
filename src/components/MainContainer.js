@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { Route, Switch } from "react-router-dom";
+
 import ExercisePage from "./ExerciseRelated/ExercisePage"
 import WorkoutsPage from "./WorkoutRelated/WorkoutsPage"
 import Home from "./Home";
@@ -10,17 +11,37 @@ import EditWorkout from "./WorkoutRelated/WorkoutForm";
 
 import ExerciseDetail from "./ExerciseRelated/ExerciseDetail";
 import Profile from "./Profile";
+import WorkoutEditForm from "./WorkoutRelated/WorkoutEditForm";
 
 
 function MainContainer(){
 
     const [exercises, setExercises] = useState([])
+    const [allWorkouts, setAllWorkouts] = useState([])
     
     useEffect(() => {
         fetch(`http://localhost:3000/exercises`)
         .then(r => r.json())
         .then(setExercises)
     }, [])
+
+    // console.log(process.env.REACT_APP_API_BASE_URL)
+    useEffect(() => {
+        fetch(`http://localhost:3000/workouts`)
+        .then(r => r.json())
+        .then(setAllWorkouts)
+    }, [])
+
+
+
+    function handleDeleteWorkout(deleteWorkout) {
+        const updateWorkoutsList = allWorkouts.filter(workout => {
+            return workout.id !== deleteWorkout.id 
+        })
+        setAllWorkouts(updateWorkoutsList)
+    }
+
+
 
     return (
         <>
@@ -33,23 +54,23 @@ function MainContainer(){
             <Route exact path="/">
                 <Home />
             </Route>
-            <Route exact path="/workouts/:id/edit">
-                <EditWorkout />
-            </Route>
             <Route path="/exercises/:id">
                 <ExerciseDetail/>    
             </Route>
             <Route path="/exercises">
                 <ExercisePage exercises={exercises} />    
             </Route>
+            <Route exact path="/workouts/:id/edit">
+                <WorkoutEditForm />
+            </Route>
             <Route exact path="/workouts/new">
                 <EditWorkout/>
             </Route>
             <Route exact path="/workouts/:id">
-                <WorkoutDetail />
+                <WorkoutDetail onDeleteClick={handleDeleteWorkout} />
             </Route>
             <Route exact path="/workouts">
-                <WorkoutsPage/>
+                <WorkoutsPage allWorkouts={allWorkouts}/>
             </Route>
             <Route path="/profile">
                 <Profile/>

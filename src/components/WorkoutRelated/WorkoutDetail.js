@@ -1,12 +1,13 @@
-import React, { useEffect, useState} from "react"
-import {Link, useParams} from "react-router-dom"
+import React, { useEffect, useState } from "react"
+import {Link, useParams, useHistory } from "react-router-dom"
 
-function WorkoutDetail(){
+function WorkoutDetail({ onDeleteClick }){
     const [workout, setWorkout] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false)
     const params = useParams();
+    const history = useHistory();
 
-    console.log(params)
+    // console.log(params)
     
     
     useEffect(() => {
@@ -25,24 +26,35 @@ function WorkoutDetail(){
     const exerciseObj = () => {
         if (exercises[0]) {
             return exercises.map(exercise => {
-                return <li key={exercise.id}> 
+                return <><li key={exercise.id}> 
                             <Link to={`/exercises/${exercise.id}`}>
                              {exercise.exercise}
                             </Link>
-                        </li>})}
+                        </li>
+                        <button dataset-id={exercise.id}>Delete</button>
+                        </>})}
         else {return <p>You should add some exercises to this workout!</p>}
     }
 
+
+    // const exerciseObj = () => {
+    //     console.log(workout.WorkoutExercises[0])
+    // }
+
+
+
     function handleDelete(){
+        onDeleteClick(workout)
         fetch(`http://localhost:3000/workouts/${params.id}`, {
             method: "DELETE"
         })
         .then(r => r.json())
-        .then(console.log("we want this to rerender here"))
-        // we want this to rerender
+        .then(() => {
+            history.push(`/workouts`)
+        })
     }
 
-    
+
 
     return(<>
         <h1> {name.toUpperCase()} on {date}</h1>
@@ -54,7 +66,11 @@ function WorkoutDetail(){
         <br></br>
         <br></br>
         <p>
-            <Link to={`/workouts/${params.id}/edit`}>
+            <Link to={{
+                pathname:`/workouts/${params.id}/edit`,
+                state: {workout:{workout}
+            }
+                }}>
                 Edit 
             </Link>
         </p>
