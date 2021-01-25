@@ -2,7 +2,7 @@
 
 
 #api keys
-.env.pkey
+.env
 
 # dependencies
 /node_modules
