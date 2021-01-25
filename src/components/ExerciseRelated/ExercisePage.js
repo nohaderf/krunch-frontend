@@ -10,8 +10,8 @@ function ExercisePage({ exercises }){
     })
 
     return (
-        <div className="exercise-page">
-            <h1 className="exercise-header">&nbsp;EXERCISES</h1>
+        <div className="page-div">
+            <h1 className="page-header">&nbsp;EXERCISES</h1>
             <div className="search-bar">
                 <Search search={search} onSearchChange={setSearch}/>
             </div>

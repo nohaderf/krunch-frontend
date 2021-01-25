@@ -155,10 +155,10 @@ ul li {
 }
 
  /* ================================================== */
- /*                    EXERCISE PAGE                   */
+ /*                         PAGE                       */
  /* ================================================== */
   
-.exercise-page {
+.page-div {
   margin: -25px 20px 0px 0px;
   justify-content: space-between;
   align-items: center;
@@ -166,11 +166,16 @@ ul li {
   flex-wrap: wrap;
 }
 
-.exercise-header {
+.page-header {
   letter-spacing: 1em;
   font-size: 2em;
   background-color: #2085d8;
 }
+
+.workout-div {
+  margin: 0px 50px;
+}
+
  /* ================================================== */
  /*                     SEARCH BAR                     */
  /* ================================================== */
