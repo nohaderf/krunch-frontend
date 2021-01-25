@@ -1,27 +1,17 @@
 import React, { useState } from "react";
 import { Card } from "semantic-ui-react";
+import {useHistory} from "react-router-dom"
 
 function ExerciseCard({ oneExercise, wktID }){
     const { id, exercise, equipment, exerciseType, majorMuscle, minorMuscle, example, notes, modifications } = oneExercise
     const [isFront, setIsFront] = useState(true)
-
-console.log(wktID)
-
-
+    const history = useHistory()
 
     function handleSpritesToggle(){
         setIsFront(!isFront)
       }
 
-
-
     function handleClick(){
-        // console.log("workoutID", typeof(wktID))
-        // console.log("exer id", typeof(id))
-
-        // const data = {workout_id: wktID, exercise_id: id}
-
-
         fetch(`${process.env.REACT_APP_API_BASE_URL}/workout_exercises`,{
             method: 'POST',
             headers: {
@@ -34,14 +24,10 @@ console.log(wktID)
           })
           .then(response => response.json())
           .then(data => {
-            console.log('data:', data);
+            history.push(`/workouts/${wktID}`);
           })
-
     }
 
-
-    
-    
     return (
             <div className="exercise-card" onClick={handleSpritesToggle}>
              { isFront ? <div className="front-content">

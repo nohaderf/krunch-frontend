@@ -11,11 +11,6 @@ function ExercisePage({ exercises }){
         wktID =false}
     else {wktID = history.location.state.workout.id;}
 
-    
-
-
-    // console.log(addExercise)
-
     const filterExercises = exercises.filter(oneExercise => {
         return oneExercise.exercise.toLowerCase().includes(search.toLowerCase())
     })
@@ -30,8 +25,7 @@ function ExercisePage({ exercises }){
                 <ExerciseList exercises={filterExercises} wktID={wktID}/>
             </div>
                 
-        </div>
-        
+        </div>  
     )
 }
 

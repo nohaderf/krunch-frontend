@@ -6,24 +6,17 @@ import Search from "../Search"
 
 function WorkoutsPage(){
     const [search, setSearch] = useState("")
-
-    // console.log(process.env.REACT_APP_API_BASE_URL)
-
     const [allWorkouts, setAllWorkouts] = useState([])
 
-  
-    // console.log(process.env.REACT_APP_API_BASE_URL)
-    useEffect(() => {
+      useEffect(() => {
         fetch(`${process.env.REACT_APP_API_BASE_URL}/workouts`)
         .then(r => r.json())
         .then(setAllWorkouts)
     }, [])
 
-
     const filterWorkouts = allWorkouts.filter(workout => {
         return workout.name.toLowerCase().includes(search.toLowerCase())
     })
-
 
     return (
         <div className="workouts-page">
@@ -37,7 +30,6 @@ function WorkoutsPage(){
                 Add new workout 
             </Link></p>
         </div>
-        
     )
 }
 

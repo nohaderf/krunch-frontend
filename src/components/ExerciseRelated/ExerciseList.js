@@ -3,7 +3,6 @@ import ExerciseCard from "./ExerciseCard"
 
 function ExerciseList({ exercises, wktID }){
 
-    // console.log(wktID)
     const exerciseCard = exercises.map(exercise => {
         return <ExerciseCard 
                     key={exercise.id} 

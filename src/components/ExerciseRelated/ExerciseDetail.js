@@ -6,9 +6,6 @@ function ExerciseDetail(){
     const [isLoaded, setIsLoaded] = useState(false)
     const params = useParams();
 
-    console.log(params)
-    
-    
     useEffect(() => {
         fetch(`${process.env.REACT_APP_API_BASE_URL}/exercises/${params.id}`)
         .then(r => r.json())
@@ -22,12 +19,6 @@ function ExerciseDetail(){
     
     const {exercise, equipment, exerciseType, majorMuscle, example} = selectedExercise
 
-
-    console.log(selectedExercise)
-
-
-    
-
     return(
         <>
         <h1> Exercise Detail </h1>
@@ -38,10 +29,6 @@ function ExerciseDetail(){
         <img src={example} alt={exercise}></img>
         </>
     )
-    
-
-
-}
-
+ }
 
 export default ExerciseDetail
