@@ -6,7 +6,7 @@ function WorkoutDetail(){
     const [isLoaded, setIsLoaded] = useState(false)
     const params = useParams();
 
-    console.log(params)
+    // console.log(params)
     
     
     useEffect(() => {
@@ -25,13 +25,22 @@ function WorkoutDetail(){
     const exerciseObj = () => {
         if (exercises[0]) {
             return exercises.map(exercise => {
-                return <li key={exercise.id}> 
+                return <><li key={exercise.id}> 
                             <Link to={`/exercises/${exercise.id}`}>
                              {exercise.exercise}
                             </Link>
-                        </li>})}
+                        </li>
+                        <button dataset-id={exercise.id}>Delete</button>
+                        </>})}
         else {return <p>You should add some exercises to this workout!</p>}
     }
+
+
+    // const exerciseObj = () => {
+    //     console.log(workout.WorkoutExercises[0])
+    // }
+
+
 
     function handleDelete(){
         fetch(`http://localhost:3000/workouts/${params.id}`, {
@@ -54,7 +63,11 @@ function WorkoutDetail(){
         <br></br>
         <br></br>
         <p>
-            <Link to={`/workouts/${params.id}/edit`}>
+            <Link to={{
+                pathname:`/workouts/${params.id}/edit`,
+                state: {workout:{workout}
+            }
+                }}>
                 Edit 
             </Link>
         </p>
