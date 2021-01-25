@@ -40,8 +40,6 @@ function ExerciseCard({ oneExercise, wktID }){
                 <p><span className="back-topic">Minor Muscle:</span> {minorMuscle}</p>
                 { notes ? <p><span className="back-topic">Tips:</span> {notes}</p> : "" }
                 { modifications ? <p><span className="back-topic">Modifications:</span> {modifications}</p> : "" }
-                <p><span className="back-topic">Tips:</span> {notes}</p>
-                <p><span className="back-topic">Modifications:</span> {modifications}</p>
                 {wktID? <button onClick={handleClick}>Add to workout</button> : null}
             </div>  }
         </div>
