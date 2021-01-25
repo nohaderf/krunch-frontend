@@ -33,32 +33,19 @@ function WorkoutDetail({addExercise}){
         else {return <p>You should add some exercises to this workout!</p>}
     }
 
-    // function handleClick(){
-    //     addExercise(workout.id)
-
-    // }
-
-
-
     function handleDelete(){
         fetch(`http://localhost:3000/workouts/${params.id}`, {
             method: "DELETE"
         })
         .then(r => r.json())
         .then(console.log(history.push(`/workouts`)))
-        // we want this to rerender
     }
-
-    
 
     return(<>
         <h1> {name.toUpperCase()} on {date}</h1>
         <h2>You did the following workouts:</h2>
         <ul>{exerciseObj()}</ul>
         <p>Notes on the day: {notes}</p>
-        <br></br>
-        <br></br>
-        <br></br>
         <br></br>
         <button>
             <Link to={{
