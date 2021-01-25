@@ -18,7 +18,7 @@ function MainContainer(){
     const [exercises, setExercises] = useState([])
     
     useEffect(() => {
-        fetch(`http://localhost:3000/exercises`)
+        fetch(`${process.env.REACT_APP_API_BASE_URL}/exercises`)
         .then(r => r.json())
         .then(setExercises)
     }, [])

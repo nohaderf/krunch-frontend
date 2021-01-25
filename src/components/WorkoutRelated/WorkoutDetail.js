@@ -1,16 +1,17 @@
 import React, { useEffect, useState} from "react"
-import {Link, useParams} from "react-router-dom"
+import {Link, useParams, useHistory} from "react-router-dom"
 
 function WorkoutDetail(){
     const [workout, setWorkout] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false)
     const params = useParams();
+    const history = useHistory()
 
     // console.log(params)
     
     
     useEffect(() => {
-        fetch(`http://localhost:3000/workouts/${params.id}`)
+        fetch(`${process.env.REACT_APP_API_BASE_URL}/workouts/${params.id}`)
         .then(r => r.json())
         .then(data => {
             setWorkout(data)
@@ -47,7 +48,7 @@ function WorkoutDetail(){
             method: "DELETE"
         })
         .then(r => r.json())
-        .then(console.log("we want this to rerender here"))
+        .then(console.log(history.push(`/workouts`)))
         // we want this to rerender
     }
 

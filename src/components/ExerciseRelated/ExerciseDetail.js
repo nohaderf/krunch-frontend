@@ -10,7 +10,7 @@ function ExerciseDetail(){
     
     
     useEffect(() => {
-        fetch(`http://localhost:3000/exercises/${params.id}`)
+        fetch(`${process.env.REACT_APP_API_BASE_URL}/exercises/${params.id}`)
         .then(r => r.json())
         .then(data => {
             setExercise(data)

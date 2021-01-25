@@ -23,7 +23,7 @@ function WorkoutEditForm(props){
             notes            
         }
         
-            fetch(`http://localhost:3000/workouts/${wkt.id}`, {
+            fetch(`${process.env.REACT_APP_API_BASE_URL}/${wkt.id}`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",
