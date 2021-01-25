@@ -1,10 +1,15 @@
 import React from "react"
 import ExerciseCard from "./ExerciseCard"
 
-function ExerciseList({ exercises }){
+function ExerciseList({ exercises, wktID }){
 
+    // console.log(wktID)
     const exerciseCard = exercises.map(exercise => {
-        return <ExerciseCard key={exercise.id} oneExercise={exercise} />
+        return <ExerciseCard 
+                    key={exercise.id} 
+                    oneExercise={exercise} 
+                    wktID = {wktID}
+                />
     })
 
     return (

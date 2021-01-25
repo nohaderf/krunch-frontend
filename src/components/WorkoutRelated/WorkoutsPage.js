@@ -7,7 +7,7 @@ import Search from "../Search"
 function WorkoutsPage(){
     const [search, setSearch] = useState("")
 
-    console.log(process.env.REACT_APP_API_BASE_URL)
+    // console.log(process.env.REACT_APP_API_BASE_URL)
 
     const [allWorkouts, setAllWorkouts] = useState([])
 

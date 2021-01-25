@@ -17,11 +17,14 @@ function MainContainer(){
 
     const [exercises, setExercises] = useState([])
     
+    
     useEffect(() => {
         fetch(`${process.env.REACT_APP_API_BASE_URL}/exercises`)
         .then(r => r.json())
         .then(setExercises)
     }, [])
+
+   
 
     return (
         <>
@@ -47,7 +50,7 @@ function MainContainer(){
                 <EditWorkout/>
             </Route>
             <Route exact path="/workouts/:id">
-                <WorkoutDetail />
+                <WorkoutDetail/>
             </Route>
             <Route exact path="/workouts">
                 <WorkoutsPage/>

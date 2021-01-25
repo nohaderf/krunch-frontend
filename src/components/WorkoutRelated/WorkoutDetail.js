@@ -1,14 +1,11 @@
 import React, { useEffect, useState} from "react"
 import {Link, useParams, useHistory} from "react-router-dom"
 
-function WorkoutDetail(){
+function WorkoutDetail({addExercise}){
     const [workout, setWorkout] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false)
     const params = useParams();
     const history = useHistory()
-
-    // console.log(params)
-    
     
     useEffect(() => {
         fetch(`${process.env.REACT_APP_API_BASE_URL}/workouts/${params.id}`)
@@ -36,9 +33,9 @@ function WorkoutDetail(){
         else {return <p>You should add some exercises to this workout!</p>}
     }
 
+    // function handleClick(){
+    //     addExercise(workout.id)
 
-    // const exerciseObj = () => {
-    //     console.log(workout.WorkoutExercises[0])
     // }
 
 
@@ -63,15 +60,24 @@ function WorkoutDetail(){
         <br></br>
         <br></br>
         <br></br>
-        <p>
+        <button>
+            <Link to={{
+                    pathname:`/exercises`,
+                    state: {workout}
+                
+                    }}>
+                    Add Exercises 
+                </Link>            
+        </button>
+
+        <button>
             <Link to={{
                 pathname:`/workouts/${params.id}/edit`,
-                state: {workout:{workout}
-            }
+                state: {workout}
                 }}>
                 Edit 
             </Link>
-        </p>
+        </button>
         <button onClick={handleDelete}>Delete this Workout</button>
         </>
     )
