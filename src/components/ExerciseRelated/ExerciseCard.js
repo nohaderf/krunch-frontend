@@ -1,14 +1,33 @@
 import React, { useState } from "react";
+import {useHistory} from "react-router-dom"
 
-function ExerciseCard({ oneExercise }){
-    const { exercise, equipment, exerciseType, majorMuscle, minorMuscle, example, notes, modifications } = oneExercise
+
+function ExerciseCard({ oneExercise, wktID }){
+    const { id, exercise, equipment, exerciseType, majorMuscle, minorMuscle, example, notes, modifications } = oneExercise
     const [isFront, setIsFront] = useState(true)
+    const history = useHistory()
 
     function handleSpritesToggle(){
         setIsFront(!isFront)
     }
 
-    console.log(notes)
+    function handleClick(){
+        fetch(`${process.env.REACT_APP_API_BASE_URL}/workout_exercises`,{
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                workout_id: wktID,
+                exercise_id: id
+            }),
+          })
+          .then(response => response.json())
+          .then(data => {
+            history.push(`/workouts/${wktID}`);
+          })
+    }
+
     return (
             <div className="exercise-card" onClick={handleSpritesToggle}>
              { isFront ? <div className="front-content">
@@ -21,6 +40,9 @@ function ExerciseCard({ oneExercise }){
                 <p><span className="back-topic">Minor Muscle:</span> {minorMuscle}</p>
                 { notes ? <p><span className="back-topic">Tips:</span> {notes}</p> : "" }
                 { modifications ? <p><span className="back-topic">Modifications:</span> {modifications}</p> : "" }
+                <p><span className="back-topic">Tips:</span> {notes}</p>
+                <p><span className="back-topic">Modifications:</span> {modifications}</p>
+                {wktID? <button onClick={handleClick}>Add to workout</button> : null}
             </div>  }
         </div>
 

@@ -1,7 +1,7 @@
 import React from "react"
 import ExerciseCard from "./ExerciseCard"
 
-function ExerciseList({ exercises }){
+function ExerciseList({ exercises, wktID }){
 
     if (exercises.length <= 0 ){
         return (
@@ -13,7 +13,11 @@ function ExerciseList({ exercises }){
     }
 
     const exerciseCard = exercises.map(exercise => {
-        return <ExerciseCard key={exercise.id} oneExercise={exercise} />
+        return <ExerciseCard 
+                    key={exercise.id} 
+                    oneExercise={exercise} 
+                    wktID = {wktID}
+                />
     })
 
     return (

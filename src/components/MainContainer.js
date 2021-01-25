@@ -19,15 +19,16 @@ function MainContainer(){
     const [exercises, setExercises] = useState([])
     const [allWorkouts, setAllWorkouts] = useState([])
     
+    
     useEffect(() => {
-        fetch(`http://localhost:3000/exercises`)
+        fetch(`${process.env.REACT_APP_API_BASE_URL}/exercises`)
         .then(r => r.json())
         .then(setExercises)
     }, [])
 
     // console.log(process.env.REACT_APP_API_BASE_URL)
     useEffect(() => {
-        fetch(`http://localhost:3000/workouts`)
+        fetch(`${process.env.REACT_APP_API_BASE_URL}/workouts`)
         .then(r => r.json())
         .then(setAllWorkouts)
     }, [])
@@ -40,8 +41,6 @@ function MainContainer(){
         })
         setAllWorkouts(updateWorkoutsList)
     }
-
-
 
     return (
         <>

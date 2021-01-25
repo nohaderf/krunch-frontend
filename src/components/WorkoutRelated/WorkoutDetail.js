@@ -11,7 +11,7 @@ function WorkoutDetail({ onDeleteClick }){
     
     
     useEffect(() => {
-        fetch(`http://localhost:3000/workouts/${params.id}`)
+        fetch(`${process.env.REACT_APP_API_BASE_URL}/workouts/${params.id}`)
         .then(r => r.json())
         .then(data => {
             setWorkout(data)
@@ -36,9 +36,9 @@ function WorkoutDetail({ onDeleteClick }){
         else {return <p>You should add some exercises to this workout!</p>}
     }
 
+    // function handleClick(){
+    //     addExercise(workout.id)
 
-    // const exerciseObj = () => {
-    //     console.log(workout.WorkoutExercises[0])
     // }
 
 
@@ -65,15 +65,24 @@ function WorkoutDetail({ onDeleteClick }){
         <br></br>
         <br></br>
         <br></br>
-        <p>
+        <button>
+            <Link to={{
+                    pathname:`/exercises`,
+                    state: {workout}
+                
+                    }}>
+                    Add Exercises 
+                </Link>            
+        </button>
+
+        <button>
             <Link to={{
                 pathname:`/workouts/${params.id}/edit`,
-                state: {workout:{workout}
-            }
+                state: {workout}
                 }}>
                 Edit 
             </Link>
-        </p>
+        </button>
         <button onClick={handleDelete}>Delete this Workout</button>
         </>
     )

@@ -6,8 +6,8 @@ function WorkoutEditForm(props){
     // const [workout, setWorkout] = useState(null);
     const params = useParams()
     const history = useHistory()
-    console.log(history.location.state.workout.workout)
-    const wkt = history.location.state.workout.workout;
+    // console.log(history.location.state.workout.workout)
+    const wkt = history.location.state.workout;
 
     const [name, setName] = useState(wkt.name)
     const [date, setDate] = useState(wkt.date)
@@ -23,7 +23,7 @@ function WorkoutEditForm(props){
             notes            
         }
         
-            fetch(`http://localhost:3000/workouts/${wkt.id}`, {
+            fetch(`${process.env.REACT_APP_API_BASE_URL}/workouts/${wkt.id}`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",

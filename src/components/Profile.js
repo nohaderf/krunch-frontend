@@ -7,7 +7,7 @@ function Profile(){
     
     
     useEffect(() => {
-        fetch(`http://localhost:3000/users/2`)
+        fetch(`${process.env.REACT_APP_API_BASE_URL}/users/2`)
         .then(r => r.json())
         .then(data => {
             setUser(data)
