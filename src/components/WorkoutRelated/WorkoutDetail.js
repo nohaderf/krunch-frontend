@@ -48,32 +48,33 @@ function WorkoutDetail({ onDeleteClick }){
     }
 
 
-    return(<>
-        <h1> {name.toUpperCase()} on {date}</h1>
-        <h2>You did the following workouts:</h2>
-        <ul>{exerciseObj()}</ul>
-        <p>Notes on the day: {notes}</p>
-        <br></br>
-        <button>
-            <Link to={{
-                    pathname:`/exercises`,
-                    state: {workout}
-                
-                    }}>
-                    Add Exercises 
-                </Link>            
-        </button>
+    return(
+        <div className="workout-div">
+            <h1> {name.toUpperCase()} on {date}</h1>
+            <h2>You did the following workouts:</h2>
+            <ul>{exerciseObj()}</ul>
+            <p>Notes on the day: {notes}</p>
+            <br></br>
+            <button>
+                <Link to={{
+                        pathname:`/exercises`,
+                        state: {workout}
+                    
+                        }}>
+                        Add Exercises 
+                    </Link>            
+            </button>
 
-        <button>
-            <Link to={{
-                pathname:`/workouts/${params.id}/edit`,
-                state: {workout}
-                }}>
-                Edit 
-            </Link>
-        </button>
-        <button onClick={handleDelete}>Delete this Workout</button>
-        </>
+            <button>
+                <Link to={{
+                    pathname:`/workouts/${params.id}/edit`,
+                    state: {workout}
+                    }}>
+                    Edit 
+                </Link>
+            </button>
+            <button onClick={handleDelete}>Delete this Workout</button>
+        </div>
     )
     
 

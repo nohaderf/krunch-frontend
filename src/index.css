@@ -109,6 +109,7 @@ nav {
   position: fixed;
   top: 100;
   width: 100%;
+  z-index: 2;
 }
 
 .nav-bar.active {
@@ -134,9 +135,9 @@ ul li {
 
 .nav-bar li {
   display: inline-block;
-  line-height: 40px;
+  line-height: 37px;
   padding: 0px 0px;
-  margin: 0px 15px;
+  margin: 0px 15px 0px 15px;
 }
 
  .nav-bar li:hover {
@@ -183,7 +184,6 @@ ul li {
  /* ================================================== */
   
 .page-div {
-  margin: -25px 20px 0px 0px;
   justify-content: space-between;
   align-items: center;
   display: flex;
@@ -194,6 +194,7 @@ ul li {
   letter-spacing: 1em;
   font-size: 2em;
   background-color: #2085d8;
+  text-transform: uppercase;
 }
 
 .workout-div {
@@ -205,7 +206,24 @@ ul li {
  /* ================================================== */
 
 .search-bar {
-  margin: 10px 0px ;
+  margin: 10px 10px;
+  background: #2f3640;
+  border-radius: 40px;
+}
+
+.search {
+    background: transparent;
+    border: none;
+    color: white;
+}
+
+.search- {
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+}
+
+textarea:focus, input:focus{
+  outline: none;
 }
 
 
@@ -233,7 +251,6 @@ ul li {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-
 }
 
  /* ================================================== */
@@ -243,27 +260,41 @@ ul li {
 .exercise-card {
   background-color: #ff9901;
   width: 300px;
-  height: 450px;
+  height: 350px;
   margin: 10px;
   border-radius: 10px;
-  text-align: left;
+}
+
+.image-div {
+  width: 300px;
+  height: 220px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
 }
 
 .image-ex {
   background-color: #313131;
   /* padding: 10px 0px; */
   width: 300px;
-  /* box-shadow: 3px 1px 0px 2px, 0px -1px 0px 2px rgba(0, 0, 0, 0.62); */
+  position: absolute;
+  left: -1000%;
+  right: -1000%;
+  top: -1000%;
+  bottom: -1000%;
+  margin: auto;
+  min-height: 100%;
+  min-width: 100%;
 }
 
 .front-content {
   display: block;
   text-align: center;
-  line-height: 0.5;
   }
 
 .back-content {
   padding: 10px;
+  text-align: left;
 }
 
 .back-topic {
@@ -279,71 +310,6 @@ ul li {
     color: #313131;
 }
 
- /* ================================================== */
- /*                        ARROW                       */
- /* ================================================== */
-
-
-.downArrow{
-	position: fixed;
-	bottom: 1%;
-  left: 50%;
-  filter: invert(1);
-}
-
-.bounce {
-	-moz-animation: bounce 3s infinite;
-	-webkit-animation: bounce 3s infinite;
-	animation: bounce 3s infinite;
-}
-@-moz-keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    -moz-transform: translateY(0);
-    transform: translateY(0);
-  }
-  40% {
-    -moz-transform: translateY(-30px);
-    transform: translateY(-30px);
-  }
-  60% {
-    -moz-transform: translateY(-15px);
-    transform: translateY(-15px);
-  }
-}
-@-webkit-keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-  40% {
-    -webkit-transform: translateY(-30px);
-    transform: translateY(-30px);
-  }
-  60% {
-    -webkit-transform: translateY(-15px);
-    transform: translateY(-15px);
-  }
-}
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    -moz-transform: translateY(0);
-    -ms-transform: translateY(0);
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-  }
-  40% {
-    -moz-transform: translateY(-30px);
-    -ms-transform: translateY(-30px);
-    -webkit-transform: translateY(-30px);
-    transform: translateY(-30px);
-  }
-  60% {
-    -moz-transform: translateY(-15px);
-    -ms-transform: translateY(-15px);
-    -webkit-transform: translateY(-15px);
-    transform: translateY(-15px);
-  }
-}
 
  /* ================================================== */
  /*                     SCROLL BAR                     */
@@ -359,8 +325,8 @@ body::-webkit-scrollbar-track {
 }
  
 body::-webkit-scrollbar-thumb {
-  background-color: darkgrey;
-  outline: 1px solid slategrey;
+  background-color:  #e2e2e25d;
+  
 }
 
 
@@ -368,6 +334,85 @@ body::-webkit-scrollbar-thumb {
  /*                    WORKOUTS CARD                   */
  /* ================================================== */
 
- .workouts-card {
-   display:flex;
+ .workouts-div {
+   margin: 10px;
  }
+
+ /* ================================================== */
+ /*                     NEW WORKOUT                     */
+ /* ================================================== */
+
+ section {
+  margin: 50px auto 70px;
+  background: #2f3640;
+  border-radius: 40px;
+  width: 30%;
+  height: 350px;
+  align-items: center;
+}
+
+form {
+  margin: 0px auto;
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+}
+
+input,
+textarea {
+  font-family:Verdana, Geneva, Tahoma, sans-serif ;
+  border: none;
+  background-color: rgb(255, 255, 255);
+  padding: 0.5rem;
+  margin: 0.25rem 0;
+}
+
+button[type="submit"] {
+  color: white;
+  background-color: #2085d8;
+  height: 25px;;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0s;
+  /* width: 102%; */
+}
+
+input[type="submit"]:active {
+  background-color:#ff8a37;
+}
+
+button[type="submit"]:active {
+  background-color: #db0049;
+}
+
+ /* ================================================== */
+ /*                     UP BUTTON                      */
+ /* ================================================== */
+
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 12px;
+  right: 1%;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  background: #414141;
+  color: rgb(255, 255, 255);
+  z-index: 1;
+}
+
+.scroll-to-top .icon{
+  margin-top: 10px;
+  animation: scrollTop 0.5s alternate ease infinite;
+}
+
+@keyframes scrollTop{
+  from {
+    transform: translateY(5px)
+  }
+  to {
+    transform: translateY(-1px);
+  }
+}

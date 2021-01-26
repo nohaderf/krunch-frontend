@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react"
+import Chart from "./Chart.js"
 
 function Profile(){
     const [user, setUser] = useState(null);
@@ -19,16 +20,23 @@ function Profile(){
     console.log(user)
     const {name, age, bio, height, weight} = user
 
+    
+
     return (
-        <nav className= "user">
-           <h1>Your Profile</h1> 
-           <br></br>
-           <h5>{name}</h5>
-           <p>Height: {height}</p>
-           <p>Weight: {weight}</p>
-           <p>Age: {age}</p>
-           <p>Bio: {bio}</p>
-        </nav>
+        <div>
+            <nav className= "user">
+                <h1>Your Profile</h1> 
+                <br></br>
+                <h5>{name}</h5>
+                <p>Height: {height}</p>
+                <p>Weight: {weight}</p>
+                <p>Age: {age}</p>
+                <p>Bio: {bio}</p>
+            </nav>
+            <div class="chart-container">
+                <canvas id="userChart"></canvas>
+            </div>
+        </div>
     )
 }
 

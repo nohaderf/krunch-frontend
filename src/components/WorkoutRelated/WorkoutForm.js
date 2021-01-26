@@ -51,29 +51,28 @@ function WorkoutForm(){
             <form className="form" onSubmit={handleSubmit}>
                 <h3>Create New Workout</h3>
                 <label>
-                    Name of workout:    
+                    Name Your Workout  
                 </label>             
                 <input 
                     type="text"
                     name="name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                />
+                /><br></br>
                 <label>Date of Workout</label>
                 <input 
                     type="date"
                     name="date"
                     value={date}
                     onChange={(e) => setDate(e.target.value)}
-
-                />
+                /><br></br>
                 <label>Any notes about the Workout</label>
                 <textarea 
                     type="textarea"
                     name="notes"
                     value={notes}
                     onChange={(e) => setNotes(e.target.value)}
-                />
+                /><br></br>
                 <button type="submit">Submit</button>
                 
             </form>

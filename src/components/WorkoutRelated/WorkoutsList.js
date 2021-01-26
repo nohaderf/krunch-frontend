@@ -13,7 +13,6 @@ function WorkoutsList({allWorkouts, onDelete}){
 
     return (
         <div className="workouts-list">
-            <h1>Your Workouts </h1>
             <p>{workoutsObj}</p>
         </div>
         

@@ -14,7 +14,7 @@ function WorkoutsPage({ allWorkouts }){
     return (
         <>
         <div className="page-div">
-            <h1 className="page-header">&nbsp;WORKOUTS</h1>
+            <h1 className="page-header">&nbsp;Your Workouts</h1>
             <div className="search-bar">
                 <Search search={search} onSearchChange={setSearch}/>
             </div>
