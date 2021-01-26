@@ -22,21 +22,36 @@ function WorkoutDetail({ onDeleteClick }){
     if (!isLoaded) return <h2>Loading...</h2>;
     
     const {date, notes, name, exercises} = workout
-
     const exerciseObj = () => {
         if (exercises[0]) {
             return exercises.map(exercise => {
+                console.log(workout)
+
                 return <><li key={exercise.id}> 
                             <Link to={`/exercises/${exercise.id}`}>
                              {exercise.exercise}
                             </Link>
                         </li>
-                        <button dataset-id={exercise.id}>Delete</button>
+                        <button 
+                            data-id={exercise.id}
+                            onClick={handleDeleteExercise}
+                            >Delete
+                            </button>
                         </>})}
         else {return <p>You should add some exercises to this workout!</p>}
     }
 
-    function handleDelete(){
+    function handleDeleteExercise(e){
+       console.log(e.target.dataset.id)
+        // fetch(`${process.env.REACT_APP_API_BASE_URL}/exercises/${id}`,{
+        //     method: "DELETE"
+        // })
+        // .then(resp=> resp.json())
+        // .then(console.log)
+
+    }
+
+    function handleDeleteWorkout(){
         onDeleteClick(workout)
         fetch(`http://localhost:3000/workouts/${params.id}`, {
             method: "DELETE"
@@ -73,7 +88,7 @@ function WorkoutDetail({ onDeleteClick }){
                     Edit 
                 </Link>
             </button>
-            <button onClick={handleDelete}>Delete this Workout</button>
+            <button onClick={handleDeleteWorkout}>Delete this Workout</button>
         </div>
     )
     

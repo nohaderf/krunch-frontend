@@ -444,6 +444,11 @@ button[type="submit"]:active {
   flex-wrap: wrap;
  }
 
+ .user-edit{
+  align-self: flex-start;
+  justify-content: flex-end;
+ }
+
 .chart-container { 
   margin: auto;
   background-color: #FFF;

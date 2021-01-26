@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react"
+import {Link} from 'react-router-dom'
 import Weight from "./Weight.js"
 import BMI from "./BMI.js"
 import WorkoutDays from "./WorkoutDays.js"
@@ -20,9 +21,11 @@ function Profile(){
 
     if (!isLoaded) return <h2>Loading...</h2>;
     console.log(user)
-    const {name, age, bio, height, weight, created_at} = user
+    const {name, age, bio, height, weight, id} = user
 
-    console.log(created_at)
+    function handleClick(e){
+        console.log(id)
+    }
 
     return (
         <>
@@ -38,11 +41,19 @@ function Profile(){
                 <p>Age: {age}</p>
                 <p>Bio: {bio}</p>
             </div>
+            <div className="user-edit">
+                <button>
+                    <Link to={"/profile/edit/"}>
+                    Edit
+                    </Link>
+                </button>
+            </div>
+
+        </div>
             <div className="chart-container">
                 <Weight />
                 {/* <BMI /> */}
             </div>
-        </div>
     </>
     )
 }
