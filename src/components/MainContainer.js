@@ -10,7 +10,7 @@ import WorkoutDetail from "./WorkoutRelated/WorkoutDetail";
 import EditWorkout from "./WorkoutRelated/WorkoutForm";
 
 import ExerciseDetail from "./ExerciseRelated/ExerciseDetail";
-import Profile from "./Profile";
+import Profile from "./ProfileRelated/Profile";
 import WorkoutEditForm from "./WorkoutRelated/WorkoutEditForm";
 
 
