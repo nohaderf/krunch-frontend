@@ -1,4 +1,6 @@
 import React, {useEffect, useState} from "react"
+import Weight from "./Weight.js"
+import BMI from "./BMI.js"
 
 function Profile(){
     const [user, setUser] = useState(null);
@@ -17,18 +19,29 @@ function Profile(){
 
     if (!isLoaded) return <h2>Loading...</h2>;
     console.log(user)
-    const {name, age, bio, height, weight} = user
+    const {name, age, bio, height, weight, created_at} = user
+
+    console.log(created_at)
 
     return (
-        <nav className= "user">
-           <h1>Your Profile</h1> 
-           <br></br>
-           <h5>{name}</h5>
-           <p>Height: {height}</p>
-           <p>Weight: {weight}</p>
-           <p>Age: {age}</p>
-           <p>Bio: {bio}</p>
-        </nav>
+        <>
+        <h1 className="page-header">&nbsp;Profile</h1>
+        <div className="profile-div">
+            <div className= "user">
+                
+                <br></br>
+                <h2>{name}</h2>
+                <p>Member since: 2020</p>
+                <p>Height: {height}</p>
+                <p>Weight: {weight}</p>
+                <p>Age: {age}</p>
+                <p>Bio: {bio}</p>
+            </div>
+            <div className="chart-container">
+                <BMI />
+            </div>
+        </div>
+    </>
     )
 }
 

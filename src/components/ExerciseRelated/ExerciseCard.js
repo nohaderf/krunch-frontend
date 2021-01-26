@@ -31,7 +31,7 @@ function ExerciseCard({ oneExercise, wktID }){
     return (
             <div className="exercise-card" onClick={handleSpritesToggle}>
              { isFront ? <div className="front-content">
-                <img className="image-ex" src={example} alt={exercise}/>
+                <div className="image-div"><img className="image-ex" src={example} alt={exercise}/></div>
                 <p className="name">{exercise}</p>
                 <span className="type">Category: {exerciseType}</span>
             </div> : <div className="back-content">

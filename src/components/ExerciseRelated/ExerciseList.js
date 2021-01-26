@@ -1,5 +1,7 @@
 import React from "react"
 import ExerciseCard from "./ExerciseCard"
+import ScrollToTop from "../ScrollToTop"
+
 
 function ExerciseList({ exercises, wktID }){
 
@@ -21,7 +23,10 @@ function ExerciseList({ exercises, wktID }){
     })
 
     return (
+        <>
         <ul className="cards">{exerciseCard}</ul>
+        <ScrollToTop />
+        </>
       );
 }
 
