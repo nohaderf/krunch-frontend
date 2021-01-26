@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react"
 import Weight from "./Weight.js"
 import BMI from "./BMI.js"
+import WorkoutDays from "./WorkoutDays.js"
 
 function Profile(){
     const [user, setUser] = useState(null);
@@ -38,7 +39,8 @@ function Profile(){
                 <p>Bio: {bio}</p>
             </div>
             <div className="chart-container">
-                <BMI />
+                <Weight />
+                {/* <BMI /> */}
             </div>
         </div>
     </>

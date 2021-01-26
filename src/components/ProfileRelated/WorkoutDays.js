@@ -1,18 +1,43 @@
 import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
 
-function Weight(){
+function WorkoutDays(){
     const [chartData, setChartData] = useState({})
+    const [weights, setWeights] = useState([])
+    const [dates, setDates] = useState([])
+
+    useEffect(() => {
+        fetch(`http://localhost:3000/weights`)
+        .then(r => r.json())
+        .then((weightObj) => {
+            const weightArray = weightObj.map((oneWeight) => oneWeight.weight)
+            setWeights(weightArray)
+            const datesArray = weightObj.map((oneWeight) => oneWeight.date)
+            setDates(datesArray)
+        })
+    }, [])
+    
+    console.log(weights)
+    console.log(dates)
 
     function chart(){
         setChartData({
-            labels: ["July", "August", "September", "October", "November", "December", "January"],
+            labels: [
+                "2020-12-12",
+                "2020-12-13",
+                "2020-12-14",
+                "2020-12-16",
+                "2020-12-17",
+                "2020-12-18",
+                "2020-12-27",
+                "2020-12-29",
+                "2021-01-02"],
             datasets: [
                 {
-                    label: 'Weight',
-                    data: [195, 199, 198, 201, 196, 195, 200],
+                    label: 'Weight (lbs)',
+                    data: weights,
                     fill: false,
-                    lineTension: 0.1,
+                    lineTension: 0,
                     backgroundColor: "#2085d8",
                     borderColor: "#2085d8",
                     borderCapStyle: "butt",
@@ -43,11 +68,11 @@ function Weight(){
                 data={chartData} 
                 options={{
                     responsive: true,
-                    title: { text: "MONTHLY WEIGHT TREND", display:true },       
+                    title: { text: "DAILY WEIGHT TREND", display:true },       
                 }} 
             />
         </div>
     );
 }
 
-export default Weight;
+export default WorkoutDays;
