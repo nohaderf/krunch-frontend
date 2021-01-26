@@ -415,4 +415,37 @@ button[type="submit"]:active {
   to {
     transform: translateY(-1px);
   }
+  
+  
+}
+
+/* ================================================== */
+/*                         HOME                       */
+/* ================================================== */
+
+.map-div {
+  margin: auto;
+  width: 70%;
+}
+
+
+ /* ================================================== */
+ /*                        PROFILE                    */
+ /* ================================================== */
+
+ .profile-div {
+  padding: 50px 100px;
+  justify-content:space-between;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+ }
+
+.chart-container { 
+  margin: auto;
+  background-color: #FFF;
+}
+
+.chart {
+  width: 140%;
 }

@@ -6,7 +6,10 @@ function Home(){
         <div className= "home">
            <h1>Home</h1>
            <h1> Gyms Near Me</h1>
-           <MapContainer />
+           
+            <div className="map-div">
+                <MapContainer />
+            </div>
         </div>
     )
 }
