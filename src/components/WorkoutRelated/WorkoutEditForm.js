@@ -2,10 +2,8 @@ import React, {useState } from "react"
 import {useParams, useHistory} from "react-router-dom"
 
 function WorkoutEditForm(props){
-    // const [workout, setWorkout] = useState(null);
     const params = useParams()
     const history = useHistory()
-    // console.log(history.location.state.workout.workout)
     const wkt = history.location.state.workout;
 
     const [name, setName] = useState(wkt.name)
@@ -22,17 +20,16 @@ function WorkoutEditForm(props){
             notes            
         }
         
-            fetch(`${process.env.REACT_APP_API_BASE_URL}/workouts/${wkt.id}`, {
-                method: "PATCH",
-                headers: {
-                    "Content-Type": "application/json",
+        fetch(`${process.env.REACT_APP_API_BASE_URL}/workouts/${wkt.id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
                 },
-                body: JSON.stringify(formData)
-            })
-            .then(r => r.json())
-            .then((newWorkout) => {
-                history.push(`/workouts/${wkt.id}`)
-            })
+            body: JSON.stringify(formData)
+        })
+        .then(r => r.json())
+        .then(history.push(`/workouts/${wkt.id}`)
+        )
     }   
 
        return(

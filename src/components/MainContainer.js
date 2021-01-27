@@ -12,6 +12,7 @@ import EditWorkout from "./WorkoutRelated/WorkoutForm";
 import ExerciseDetail from "./ExerciseRelated/ExerciseDetail";
 import Profile from "./ProfileRelated/Profile";
 import WorkoutEditForm from "./WorkoutRelated/WorkoutEditForm";
+import ProfileForm from "./ProfileRelated/ProfileForm";
 
 
 function MainContainer(){
@@ -70,6 +71,9 @@ function MainContainer(){
             </Route>
             <Route exact path="/workouts">
                 <WorkoutsPage allWorkouts={allWorkouts}/>
+            </Route>
+            <Route exact path="/profile/edit">
+                <ProfileForm/>
             </Route>
             <Route path="/profile">
                 <Profile/>

@@ -456,6 +456,12 @@ button[type="submit"]:active {
   flex-wrap: wrap;
  }
 
+ .user-edit{
+  align-self: flex-start;
+  justify-content: flex-end;
+ }
+
+
  .chart-container {
   padding-bottom: 150px;
  }
@@ -464,12 +470,19 @@ button[type="submit"]:active {
   position: relative; 
   height:30vh; 
   width:50vw;
+} 
+
+.chart-container { 
+  margin: auto;
+  background-color: #FFF;
 }
          
 .chart {
   background-color: #FFF;
   border-radius: 5px;
 }
+
+/*chart nav */
 
 .chart-btns-div {
   flex-direction: column;
