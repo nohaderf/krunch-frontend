@@ -1,8 +1,7 @@
 import React from "react"
 
 function Footer(){
-    
-    
+       
     return (
         <div className="footer-div">
             <p><i class="fab fa-facebook-f"></i></p>
