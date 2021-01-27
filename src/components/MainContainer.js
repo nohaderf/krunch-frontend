@@ -5,7 +5,8 @@ import ExercisePage from "./ExerciseRelated/ExercisePage"
 import WorkoutsPage from "./WorkoutRelated/WorkoutsPage"
 import Home from "./Home";
 
-import main from '../main.jpg';
+import main_1 from '../Images/main.jpg';
+// import main_2 from "../Images/main_header_2.jpeg"
 import WorkoutDetail from "./WorkoutRelated/WorkoutDetail";
 import EditWorkout from "./WorkoutRelated/WorkoutForm";
 
@@ -35,7 +36,6 @@ function MainContainer(){
     }, [])
 
 
-
     function handleDeleteWorkout(deleteWorkout) {
         const updateWorkoutsList = allWorkouts.filter(workout => {
             return workout.id !== deleteWorkout.id 
@@ -46,8 +46,7 @@ function MainContainer(){
     return (
         <>
         <div className="main-container">
-            {/* <p className="slogan">Let's Krunch Again</p> */}
-            <img className="main-img" src={main} alt="Krunch" />
+            <img className="main-img-1" src={main_1} alt="KRUNCH" />
         </div>
 
         <Switch>

@@ -1,16 +1,17 @@
 import NavBar from './NavBar';
 import MainContainer from './MainContainer';
 import Footer from './Footer';
+import { LoginProvider } from './Login';
 
 function App() {
   return (
-    <>
-    <div className="App">
-      <NavBar />
-      <MainContainer />
-      <Footer />
-    </div>
-    </>
+    <LoginProvider>
+      <div className="App">
+        <NavBar />
+        <MainContainer />
+        <Footer />
+      </div>
+    </LoginProvider>
   );
 }
 

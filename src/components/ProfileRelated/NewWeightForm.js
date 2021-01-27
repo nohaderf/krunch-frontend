@@ -14,8 +14,10 @@ function NewWeightForm({ user, onAddWeight }){
         const formData = {
             weight: weight,
             date: date,
-            user: user,
+            user_id : user.id,
         }
+
+        console.log(formData)
 
         fetch(`${process.env.REACT_APP_API_BASE_URL}/weights`,{
             method: "POST",
@@ -24,8 +26,10 @@ function NewWeightForm({ user, onAddWeight }){
             },
             body: JSON.stringify(formData)
         })
-        .then(r => r.json)
+        .then(r => r.json())
         .then(onAddWeight)
+
+        // onAddWeight(formData)
 
         setWeight("")
         setDate("")
