@@ -1,5 +1,5 @@
 import React, { useEffect, useState} from "react"
-import {Link, useParams} from "react-router-dom"
+import {useParams} from "react-router-dom"
 
 function ExerciseDetail(){
     const [selectedExercise, setExercise] = useState(null);
@@ -17,7 +17,7 @@ function ExerciseDetail(){
 
     if (!isLoaded) return <h2>Loading...</h2>;
     
-    const {exercise, equipment, exerciseType, majorMuscle, example} = selectedExercise
+    const {exercise, equipment, exerciseType, example} = selectedExercise
 
     return(
         <>

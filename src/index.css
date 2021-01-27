@@ -350,7 +350,13 @@ body::-webkit-scrollbar-thumb {
  /*                    WORKOUTS CARD                   */
  /* ================================================== */
 
- .workouts-div {
+ .workout-obj-parent{
+   display: flex;
+   justify-content: space-around;
+ }
+
+
+ .workouts-card {
    margin: 10px;
  }
 
@@ -550,3 +556,11 @@ li {
   height: 0px;
 
 }
+
+ /* ================================================== */
+ /*                        FOOTER                     */
+ /* ================================================== */
+
+ .footer-div {
+   height:320px;
+ }

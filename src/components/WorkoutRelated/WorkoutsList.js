@@ -12,10 +12,7 @@ function WorkoutsList({allWorkouts, onDelete}){
     })
 
     return (
-        <div className="workouts-list">
-            <p>{workoutsObj}</p>
-        </div>
-        
+        <div className="workout-obj-parent">{workoutsObj}</div>       
     )
 }
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 
-let latitude = 40.73061
-let longitude = -73.935242
+let latitude = 40.78343
+let longitude = -73.9669
   
 export default function Map({ options, onMount, className, onMountProps }) {
   const ref = useRef()
