@@ -1,26 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
 
-function WorkoutDays(){
+function Weight({ weights, dates }){
     const [chartData, setChartData] = useState({})
-    const [weights, setWeights] = useState([])
-    const [dates, setDates] = useState([])
-
-    useEffect(() => {
-        fetch(`http://localhost:3000/weights`)
-        .then(r => r.json())
-        .then((weightObj) => renderWeights(weightObj))
-    }, [])
-
-    function renderWeights(weightObj){
-        const weightArray = weightObj.map((oneWeight) => oneWeight.weight)
-            setWeights(weightArray)
-            const datesArray = weightObj.map((oneWeight) => oneWeight.date)
-            setDates(datesArray)
-    }
-    
-    console.log(weights)
-    console.log(dates)
 
     function chart(){
         setChartData( 
@@ -69,4 +51,4 @@ function WorkoutDays(){
     );
 }
 
-export default WorkoutDays;
+export default Weight;

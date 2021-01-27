@@ -1,8 +1,6 @@
 import React, {useState} from "react"
 import { useHistory} from "react-router-dom"
 
-
-
 function ProfileForm(){
     const history = useHistory()
 
@@ -20,9 +18,7 @@ function ProfileForm(){
         })
           .then(response => response.json())
           .then(history.push(`/profile`));
-    }    
-           
-
+    }   
    
     return(
         <section>
