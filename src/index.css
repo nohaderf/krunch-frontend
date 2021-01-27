@@ -217,6 +217,11 @@ ul li {
   margin: 0px 50px 100px;
 }
 
+.workout {
+  background-color:rgba(126, 126, 126, 0.3);
+  margin: 10px 10px 0px 0px;
+}
+
  /* ================================================== */
  /*                     SEARCH BAR                     */
  /* ================================================== */
@@ -467,28 +472,16 @@ button[type="submit"]:active {
   justify-content: flex-end;
  }
 
-
- .chart-container {
-  padding-bottom: 150px;
- }
-
 .charts-div {
   position: relative; 
   height:30vh; 
   width:50vw;
 } 
-
-.chart-container { 
-  margin: auto;
-  background-color: #FFF;
-}
-         
+    
 .chart {
   background-color: #FFF;
   border-radius: 5px;
 }
-
-/*chart nav */
 
 .chart-btns-div {
   flex-direction: column;
@@ -509,7 +502,7 @@ button[type="submit"]:active {
 }
 
 .chart-btns.bmi {
-  background-color:rgb(255, 188, 64);
+  background-color:#ff8936;
   margin: 50px 15px;
 }
 

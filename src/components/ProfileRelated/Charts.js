@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Weight from "./Weight.js"
 import BMI from "./BMI.js"
 import NewWeightForm from "./NewWeightForm.js"
 
-function Charts(){
+function Charts({ user, weights, dates, handleAddWeight }){
     const [showWeight, setShowWeight] = useState(true)
     const [showForm, setShowForm] = useState(false)
 
+    
     function handleShowWeight(){
         setShowWeight(true)
     }
@@ -19,6 +20,7 @@ function Charts(){
         setShowForm(!showForm)
     }
 
+    
     return (
         <>
         <div className="charts-div">
@@ -27,11 +29,11 @@ function Charts(){
                 <li><button onClick={handleBMI} className="chart-btns bmi">BMI</button></li>
             </div>
             
-            { showWeight ? <Weight /> : <BMI />  }
+            { showWeight ? <Weight weights={weights} dates={dates} /> : <BMI weights={weights} dates={dates} />  }
 
         </div>
         <button onClick={toggleShowForm} className="add-weight">ADD WEIGHT</button>
-        { showForm ? <NewWeightForm /> : null }
+        { showForm ? <NewWeightForm user={user} onAddWeight={handleAddWeight} /> : null }
         </>
     )
 }

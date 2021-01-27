@@ -7,7 +7,7 @@ function WorkoutDays(){
     const [dates, setDates] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:3000/weights`)
+        fetch(`${process.env.REACT_APP_API_BASE_URL}/weights`)
         .then(r => r.json())
         .then((weightObj) => {
             const weightArray = weightObj.map((oneWeight) => oneWeight.weight)

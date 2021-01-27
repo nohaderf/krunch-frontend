@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
-function NewWeightForm({ onAddWeight }){
+function NewWeightForm({ user, onAddWeight }){
     const [showForm, setShowForm] = useState(true)
     const [weight, setWeight] = useState()
-    const [date, setDate] = useState('')
+    const [date, setDate] = useState("")
 
     function handleCloseForm(){
         setShowForm(false)
@@ -14,11 +14,10 @@ function NewWeightForm({ onAddWeight }){
         const formData = {
             weight: weight,
             date: date,
-            user_id: 1,
+            user: user,
         }
 
-        // console.log(formData)
-        fetch(`http://localhost:3000/weights`,{
+        fetch(`${process.env.REACT_APP_API_BASE_URL}/weights`,{
             method: "POST",
             headers: {
                 "Content-Type" : "application/json"
@@ -27,6 +26,9 @@ function NewWeightForm({ onAddWeight }){
         })
         .then(r => r.json)
         .then(onAddWeight)
+
+        setWeight("")
+        setDate("")
     }
 
     return (
@@ -52,7 +54,7 @@ function NewWeightForm({ onAddWeight }){
                     placeholder="Enter Weight" 
                     name="weight" 
                     value={weight}
-                    onChange={e => setWeight(e.target.value)}
+                    onChange={e => setWeight(parseInt(e.target.value))}
                     required>
                 </input>
 

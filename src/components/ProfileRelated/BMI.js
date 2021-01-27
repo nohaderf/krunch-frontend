@@ -1,30 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
 
-function BMI(){
+function BMI({ weights, dates }){
     const [chartData, setChartData] = useState({})
-    const [weights, setWeights] = useState([])
-    const [dates, setDates] = useState([])
     const [bmi, setBmi] = useState([])
 
     useEffect(() => {
-        fetch(`http://localhost:3000/weights`)
-        .then(r => r.json())
-        .then((weightObj) => renderWeights(weightObj))
-    }, [])
-
-    useEffect(() => {
-        fetch(`http://localhost:3000/users/1`)
+        fetch(`${process.env.REACT_APP_API_BASE_URL}/users/1`)
         .then(r => r.json())
         .then((userObj) => calculateBMI(userObj.height))
     }, [weights])
-
-    function renderWeights(weightObj){
-        const weightArray = weightObj.map((oneWeight) => oneWeight.weight)
-            setWeights(weightArray)
-            const datesArray = weightObj.map((oneWeight) => oneWeight.date)
-            setDates(datesArray)
-    }
 
     function calculateBMI(height){
         const numHeight = height.replace("'", " ")
