@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
 
-function WorkoutDays(){
+function Weight(){
     const [chartData, setChartData] = useState({})
     const [weights, setWeights] = useState([])
     const [dates, setDates] = useState([])
@@ -69,4 +69,4 @@ function WorkoutDays(){
     );
 }
 
-export default WorkoutDays;
+export default Weight;

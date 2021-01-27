@@ -4,13 +4,16 @@ import logo from '../logo.png';
 
 function NavBar(){
     const [navBar, setNavBar] = useState(false)
+    const [smallLogo, setSmallLogo] = useState(false)
     // const [isSticky, setIsSticky] = useState(false)
 
     function changeBackground() {
         if (window.scrollY >= 40) {
             setNavBar(true)
+            setSmallLogo(true)
         } else {
             setNavBar(false)
+            setSmallLogo(false)
         }
     }
 
@@ -18,7 +21,7 @@ function NavBar(){
 
     return (
         <nav className={navBar ? "nav-bar active" : "nav-bar"}>
-            <img className="logo" src={logo} alt="Krunch" />
+            <img className={smallLogo ? "logo active" : "logo"} src={logo} alt="Krunch" />
             <ul>
                 <li>
                     <NavLink exact to="/">

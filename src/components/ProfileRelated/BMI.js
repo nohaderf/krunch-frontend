@@ -3,21 +3,46 @@ import { Line } from "react-chartjs-2";
 
 function BMI(){
     const [chartData, setChartData] = useState({})
+    const [weights, setWeights] = useState([])
+    const [dates, setDates] = useState([])
+    const [bmi, setBmi] = useState([])
 
-    const weights = [195, 199, 198, 201, 196, 195, 200]
-    const bmiArray = weights.map( weight => {
-        return ((weight / 72 / 72 ) * 703)
-    })
+    useEffect(() => {
+        fetch(`http://localhost:3000/weights`)
+        .then(r => r.json())
+        .then((weightObj) => renderWeights(weightObj))
+    }, [])
 
-    // console.log(bmiArray)
+    useEffect(() => {
+        fetch(`http://localhost:3000/users/1`)
+        .then(r => r.json())
+        .then((userObj) => calculateBMI(userObj.height))
+    }, [weights])
+
+    function renderWeights(weightObj){
+        const weightArray = weightObj.map((oneWeight) => oneWeight.weight)
+            setWeights(weightArray)
+            const datesArray = weightObj.map((oneWeight) => oneWeight.date)
+            setDates(datesArray)
+    }
+
+    function calculateBMI(height){
+        const numHeight = height.replace("'", " ")
+        const heightInches = parseInt(numHeight * 12)
+        const bmiArray = weights.map( weight => {
+            return ( (weight / heightInches / heightInches ) * 703).toFixed(1)
+        })
+        setBmi(bmiArray)
+    }
+    
 
     function chart(){
         setChartData({
-            labels: ["July", "August", "September", "October", "November", "December", "January"],
+            labels: dates,
             datasets: [
                 {
                     label: 'BMI',
-                    data: bmiArray,
+                    data: bmi,
                     fill: false,
                     lineTension: 0.1,
                     backgroundColor: "#2085d8",
@@ -42,7 +67,7 @@ function BMI(){
 
     useEffect(() => {
         chart()
-    }, [])
+    }, [ bmi, dates])
 
     return(
         <div className="chart">
@@ -50,9 +75,10 @@ function BMI(){
                 data={chartData} 
                 options={{
                     responsive: true,
-                    title: { text: "MONTHLY BMI TREND", display:true },       
+                    title: { text: "DAILY BMI TREND", display:true },       
                 }} 
             />
+            
         </div>
     );
 }
