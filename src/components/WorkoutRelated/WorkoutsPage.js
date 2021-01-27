@@ -21,9 +21,7 @@ function WorkoutsPage({ allWorkouts }){
          </div>
          <div className="workout-div">
             <WorkoutsList allWorkouts={filterWorkouts} />
-            <p><Link to={`/workouts/new`}>
-                Add new workout 
-            </Link></p>
+            
         </div>
         </>
     )

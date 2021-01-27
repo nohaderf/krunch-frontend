@@ -395,6 +395,55 @@ button[type="submit"]:active {
   background-color: #db0049;
 }
 
+/* ================================================== */
+ /*                    WORKOUT DETAIL                   */
+ /* ================================================== */
+ .workout-div{
+   display:flex;
+   justify-content:space-around;
+ }
+
+ .workout-obj-parent{
+   display:flex;
+   flex-wrap: wrap;
+ }
+
+ .workouts-card{
+  flex-basis: 28%;
+  justify-content:space-around;
+
+}
+
+ .wkt-exercise-detail-div{
+  /* flex: 1 0 21%; */
+   flex-basis: 25%;
+ }
+
+
+ .workout-detail-exercise-images{
+   display:flex;
+   justify-content:space-between;
+   justify-content: flex-start;
+   flex-wrap: wrap;
+ }
+ 
+.left-workout-div{
+  flex:2;
+}
+
+.right-workout-div{
+  flex:3;
+}
+
+.workout-delete-button{
+    float:right;
+}
+
+
+
+
+
+
  /* ================================================== */
  /*                     UP BUTTON                      */
  /* ================================================== */

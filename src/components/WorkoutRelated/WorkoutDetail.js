@@ -27,16 +27,19 @@ function WorkoutDetail({ onDeleteClick }){
             return exercises.map(exercise => {
                 console.log(workout)
 
-                return <><li key={exercise.id}> 
-                            <Link to={`/exercises/${exercise.id}`}>
+                return <><div className="wkt-exercise-detail-div" key={exercise.id}> 
                              {exercise.exercise}
+                            <br></br>
+                            <Link to={`/exercises/${exercise.id}`}>
+                                <img src={exercise.example} width="100" height="100"></img>
                             </Link>
-                        </li>
-                        <button 
-                            data-id={exercise.id}
-                            onClick={handleDeleteExercise}
-                            >Delete
+                            <br></br>
+                            <button 
+                                data-id={exercise.id}
+                                onClick={handleDeleteExercise}
+                                >Delete
                             </button>
+                        </div>
                         </>})}
         else {return <p>You should add some exercises to this workout!</p>}
     }
@@ -64,36 +67,43 @@ function WorkoutDetail({ onDeleteClick }){
 
 
     return(
+        <>
         <div className="workout-div">
-            <h1> {name.toUpperCase()} on {date}</h1>
-            <h2>You did the following workouts:</h2>
-            <ul>{exerciseObj()}</ul>
-            <p>Notes on the day: {notes}</p>
-            <br></br>
-            <button>
-                <Link to={{
-                        pathname:`/exercises`,
+            <div className="left-workout-div">
+                <h1> {name.toUpperCase()} on {date}</h1>
+                <p>Notes on the day: {notes}</p>
+                <br></br>
+                <button>
+                    <Link to={{
+                            pathname:`/exercises`,
+                            state: {workout}
+                            }}>
+                            Add Exercises 
+                        </Link>            
+                </button>
+
+                <button>
+                    <Link to={{
+                        pathname:`/workouts/${params.id}/edit`,
                         state: {workout}
-                    
                         }}>
-                        Add Exercises 
-                    </Link>            
-            </button>
+                        Edit 
+                    </Link>
+                </button>
+            </div>
 
-            <button>
-                <Link to={{
-                    pathname:`/workouts/${params.id}/edit`,
-                    state: {workout}
-                    }}>
-                    Edit 
-                </Link>
-            </button>
-            <button onClick={handleDeleteWorkout}>Delete this Workout</button>
+            <div className="right-workout-div">
+                {exercises[0] ? <h2>You did the following workouts:</h2> : <h2>You should</h2>}
+                <div className = "workout-detail-exercise-images">{exerciseObj()}</div>
+            </div>                 
         </div>
-    )
     
-
-
+            <div className="workout-delete-button">                
+                <button onClick={handleDeleteWorkout}>Delete this Workout</button>
+            </div>            
+        </>
+    )
+  
 }
 
 

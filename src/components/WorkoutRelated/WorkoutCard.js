@@ -20,8 +20,12 @@ function WorkoutCard({workout}){
     return (
         <div className="workouts-card">
             <h2>
-                <Link to={`/workouts/${id}`}>{name}</Link> on {date}
-            </h2>     
+                <Link to={`/workouts/${id}`}>{name}</Link> 
+            </h2>   
+            
+            <h3>
+                 {date}
+            </h3>
         </div>
         
     )
