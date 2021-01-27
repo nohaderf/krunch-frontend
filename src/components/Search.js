@@ -8,13 +8,13 @@ function Search({ search, onSearchChange }) {
       <input
         className="search"
         type="text"
-        autocomplete="off"
+        autoComplete="off"
         id="search"
         placeholder="  search..."
         value={search}
         onChange={(e) => onSearchChange(e.target.value)}
       />
-      <span className="search-icon"> <i class="fas fa-search"></i></span>
+      <span className="search-icon"> <i className="fas fa-search"></i></span>
     </div>
     </div>
     

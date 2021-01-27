@@ -1,12 +1,12 @@
-import React, {useState, useEffect} from "react"
-import {useParams, useHistory} from "react-router-dom"
-import {Link} from "react-router-dom"
+import React, {useState} from "react"
+import {useHistory} from "react-router-dom"
+// import {Link} from "react-router-dom"
 
 
 
 function WorkoutForm(){
-    const [workout, setWorkout] = useState(null);
-    const params = useParams()
+    // const [workout, setWorkout] = useState(null);
+    // const params = useParams()
     const history = useHistory()
 
     const [name, setName] = useState("")

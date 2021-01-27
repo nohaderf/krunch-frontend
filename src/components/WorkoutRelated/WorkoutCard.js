@@ -1,10 +1,10 @@
 import React from "react"
 import {Link} from "react-router-dom"
-import { Route, useRouteMatch } from "react-router-dom";
+// import { Route, useRouteMatch } from "react-router-dom";
 
 
 function WorkoutCard({workout}){
-    const {date, notes, name, exercises, id} = workout
+    const {date, name, exercises, id} = workout
     // console.log(id)
     
     
@@ -21,9 +21,7 @@ function WorkoutCard({workout}){
         <div className="workouts-card">
             <h2>
                 <Link to={`/workouts/${id}`}>{name}</Link> on {date}
-            </h2>
-            {/* <ul>{exerciseObj()}</ul> */}
-            
+            </h2>     
         </div>
         
     )

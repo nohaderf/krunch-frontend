@@ -1,5 +1,6 @@
 import NavBar from './NavBar';
 import MainContainer from './MainContainer';
+import Footer from './Footer';
 
 function App() {
   return (
@@ -7,6 +8,7 @@ function App() {
     <div className="App">
       <NavBar />
       <MainContainer />
+      <Footer />
     </div>
     </>
   );

@@ -337,7 +337,13 @@ body::-webkit-scrollbar-thumb {
  /*                    WORKOUTS CARD                   */
  /* ================================================== */
 
- .workouts-div {
+ .workout-obj-parent{
+   display: flex;
+   justify-content: space-around;
+ }
+
+
+ .workouts-card {
    margin: 10px;
  }
 
@@ -457,3 +463,12 @@ button[type="submit"]:active {
 .chart {
   width: 140%;
 }
+
+
+ /* ================================================== */
+ /*                        FOOTER                     */
+ /* ================================================== */
+
+ .footer-div {
+   height:320px;
+ }
