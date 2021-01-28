@@ -13,7 +13,7 @@ function ExerciseCard({ oneExercise, wktID }){
     }
 
     function handleClick(){
-        fetch(`${process.env.REACT_APP_API_BASE_URL}/workout_exercises`,{
+        fetch(`https://krunch-app.herokuapp.com/workout_exercises`,{
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

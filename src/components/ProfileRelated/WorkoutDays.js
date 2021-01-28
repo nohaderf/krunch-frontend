@@ -7,7 +7,7 @@ function WorkoutDays(){
     const [dates, setDates] = useState([])
 
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_API_BASE_URL}/weights`)
+        fetch(`https://krunch-app.herokuapp.com/weights`)
         .then(r => r.json())
         .then((weightObj) => {
             const weightArray = weightObj.map((oneWeight) => oneWeight.weight)

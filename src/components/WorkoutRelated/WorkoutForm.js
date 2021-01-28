@@ -21,7 +21,7 @@ function WorkoutForm({addNewWorkout}){
             tag
         }
    
-            fetch(`http://localhost:3000/workouts/`, {
+            fetch(`https://krunch-app.herokuapp.com/workouts/`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",

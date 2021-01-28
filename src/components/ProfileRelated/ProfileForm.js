@@ -9,7 +9,7 @@ function ProfileForm(){
     function handleSubmit(e) {
         e.preventDefault()
                        
-        fetch(`${process.env.REACT_APP_API_BASE_URL}/users/2`, {
+        fetch(`https://krunch-app.herokuapp.com/users/2`, {
             method: 'PATCH',
             headers: {
               'Content-Type': 'application/json',

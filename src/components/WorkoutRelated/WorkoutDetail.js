@@ -13,7 +13,7 @@ function WorkoutDetail({ onDeleteClick }){
 
        
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_API_BASE_URL}/workouts/${params.id}`)
+        fetch(`https://krunch-app.herokuapp.com/workouts/${params.id}`)
         .then(r => r.json())
         .then(data => {
             setWorkout(data)
@@ -29,7 +29,7 @@ function WorkoutDetail({ onDeleteClick }){
 
     function handleDeleteWorkout(){
         onDeleteClick(workout)
-        fetch(`http://localhost:3000/workouts/${params.id}`, {
+        fetch(`https://krunch-app.herokuapp.com/workouts/${params.id}`, {
             method: "DELETE"
         })
         .then(r => r.json())
@@ -40,7 +40,7 @@ function WorkoutDetail({ onDeleteClick }){
 
     function handleExerciseRemove(removedWorkoutExerciseID, exerciseID){
         console.log(removedWorkoutExerciseID)
-        fetch(`${process.env.REACT_APP_API_BASE_URL}/workout_exercises/${removedWorkoutExerciseID}`,{
+        fetch(`https://krunch-app.herokuapp.com/workout_exercises/${removedWorkoutExerciseID}`,{
             method: "DELETE"
         })
        

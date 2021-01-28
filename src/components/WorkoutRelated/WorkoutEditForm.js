@@ -20,7 +20,7 @@ function WorkoutEditForm(props){
             tag            
         }
         
-        fetch(`${process.env.REACT_APP_API_BASE_URL}/workouts/${wkt.id}`, {
+        fetch(`https://krunch-app.herokuapp.com/workouts/${wkt.id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",

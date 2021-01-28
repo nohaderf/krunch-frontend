@@ -7,7 +7,7 @@ function ExerciseDetail(){
     const params = useParams();
 
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_API_BASE_URL}/exercises/${params.id}`)
+        fetch(`https://krunch-app.herokuapp.com/exercises/${params.id}`)
         .then(r => r.json())
         .then(data => {
             setExercise(data)
