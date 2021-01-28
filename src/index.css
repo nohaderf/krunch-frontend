@@ -324,7 +324,7 @@ textarea:focus, input:focus{
 
 
 .workout-list-card{
-  background-color:#ffffff;
+  background-color:#151414;
   margin:5px; 
   width: 250px;
   height:200px;
@@ -446,7 +446,7 @@ textarea:focus, input:focus{
 }
 
 .doughnut-chart {
-  background: white;
+  background: #1a1a1a;
   height: 100%;
   border-radius: 15px;
 }
