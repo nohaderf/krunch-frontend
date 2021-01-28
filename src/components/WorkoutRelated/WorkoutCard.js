@@ -13,15 +13,8 @@ function WorkoutCard({workout}){
         else {return <p>Add some exercise to this workout!</p>}
     }
 
-
     return (
         <>
-        <Link to={`/workouts/${id}`}>
-            <div className="workouts-card">
-                <h2>{name}</h2>   
-                <p>{date}</p>
-            </div>
-        </Link>
         <div class="workout-list-card">
             <div class="pics_card" >
                 <div class="txt_titre_card"><Link to={`/workouts/${id}`}>{name} on {(date).slice(6,10)}</Link></div>

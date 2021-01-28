@@ -40,10 +40,6 @@ function WorkoutsPage({ allWorkouts }){
          <div className="workout-div">
             <div className="workout">
                 <WorkoutsList allWorkouts={filterWorkouts} />
-                <p><Link to={`/workouts/new`}>
-                        <button className="add-new-workout"><strong>ADD NEW WORKOUT</strong></button>
-                    </Link>
-                </p>
             </div>
         </div>
         </>
