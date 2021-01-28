@@ -86,9 +86,9 @@ function WorkoutDetail({ onDeleteClick }){
             </div>                 
         </div>
 
-        {/* <div className="reps-data">
+        <div className="reps-data">
             <ChartReps />
-        </div> */}
+        </div>
         <ScrollToTop />
         </>
     )
