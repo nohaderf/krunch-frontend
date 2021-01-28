@@ -31,7 +31,7 @@ function ExerciseCard({ oneExercise, wktID }){
     }
 
     return (
-            <div className="exercise-card" >
+        <div className="exercise-card" >
              { isFront ? <div className="front-content" onClick={handleSpritesToggle}>
                 <div className="image-div"><img className="image-ex" src={example} alt={exercise}/></div>
                 <p className="name">{exercise}</p>
@@ -45,7 +45,7 @@ function ExerciseCard({ oneExercise, wktID }){
                 {wktID? <input type="text" value={repInput} onChange={(event) => setRepInput(event.target.value)}></input> : null}
                 {wktID? <button onClick={handleClick}>Add to workout</button> : null}
                 <p onClick={handleSpritesToggle}>Return to front</p>
-            </div>  }
+            </div>  }    
         </div>
 
         

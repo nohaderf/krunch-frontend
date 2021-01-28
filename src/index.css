@@ -488,7 +488,7 @@ button[type="submit"]:active {
 }
 
 .scroll-to-top .icon{
-  margin-top: 10px;
+  margin: 13px;
   animation: scrollTop 0.5s alternate ease infinite;
 }
 
@@ -607,12 +607,12 @@ li {
  /* ================================================== */
 
 .home {
-  text-align: center;
   font-family: 'Oswald', sans-serif;
 }
 
 .home h1 {
-  margin: 50px;
+  text-align: center;
+  margin: 50px 0;
 }
 
 .home-div {
@@ -628,6 +628,7 @@ li {
 .home-img-1 {
   max-width: 70%;
   animation: fadeIn 5s infinite alternate;
+  overflow: hidden;
 }
 
 .home-fade-in ul li {
@@ -669,6 +670,25 @@ li {
     text-transform: uppercase;
     border-radius: 5px;
     animation: fadeIn 5s infinite alternate;
+  }
+  
+  .pun-div {
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    
+  }
+
+  .pun-q {
+    font-size: 1.3em;
+    color: #000000; 
+  }
+
+  .pun-a {
+    text-align: center;
+    font-size: 1.3em;
+
   }
 
   .locations {
