@@ -668,7 +668,7 @@ button[type="submit"]:active {
 
 .scroll-to-top {
   position: fixed;
-  bottom: 12px;
+  bottom: 50px;
   right: 1%;
   width: 40px;
   height: 40px;
