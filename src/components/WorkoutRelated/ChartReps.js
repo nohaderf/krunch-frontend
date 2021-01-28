@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-// import { Line } from "react-chartjs-2";
+import { Line, Doughnut } from "react-chartjs-2";
 
 function ChartReps(){
-    // const [chartData, setChartData] = useState({})
-    // const [bmi, setBmi] = useState([])
+    const [chartData, setChartData] = useState({})
+    const [reps, setReps] = useState([])
 
     useEffect(() => {
         fetch(`${process.env.REACT_APP_API_BASE_URL}/workouts`)
@@ -28,22 +28,24 @@ function ChartReps(){
         let absTotal = 0
         const absRepArr = absObjs.map(abWorkout => {
             return abWorkout.WorkoutExercises.map(we =>{
-                absTotal = absTotal+ we.reps
+                absTotal = absTotal + we.reps
             })
         })
         repsArr.push(absTotal)
+
         //----------------------------------
         const chestObjs = workoutObj.filter(wkt => {
             return wkt.tag === "Chest"
         })
 
         let chestTotal = 0
-        const chestRepArr = chestObjs.map(abWorkout => {
-            return abWorkout.WorkoutExercises.map(we =>{
-                chestTotal = chestTotal+ we.reps
+        const chestRepArr = chestObjs.map(chest => {
+            return chest.WorkoutExercises.map(we =>{
+                chestTotal = chestTotal + we.reps
             })
         })
         repsArr.push(chestTotal)
+
         //----------------------------------
         const armsObjs = workoutObj.filter(wkt => {
             return wkt.tag === "Arms"
@@ -82,69 +84,53 @@ function ChartReps(){
         repsArr.push(legsTotal)
         //----------------------------------
         
-
-        
-        
-        console.log(repsArr)    
-
-      
-        // console.log(workoutObj)
-        // setBmi(bmiArray)
+        setReps(repsArr)
+    }
+    
+    function chart(){
+        setChartData({
+            labels: ["Abs", "Chest", "Arms", "Cardio", "Legs"],
+            datasets: [
+                {
+                    label: ["Orange", "Blue", "Green", "Yellow", "Purple"],
+                    data: reps,
+                    lineTension: 0.1,
+                    backgroundColor: ["#ff9936", "#2085d8", "#acff52", "#fff000", "#9e36ff"],
+                    borderColor: ["#ff9936", "#2085d8", "#acff52", "#fff000", "#9e36ff"],
+                    borderCapStyle: "butt",
+                    borderDash: [],
+                    borderDashOffset: 0.0,
+                    borderJoinStyle: "miter",
+                    pointBorderColor: "#2085d8",
+                    pointBackgroundColor: "#FFF",
+                    pointBorderWidth: 1,
+                    pointHoverRadius: 5,
+                    pointHoverBackgroundColor: "#2f3640",
+                    pointHoverBorderColor: "#2085d8",
+                    pointHoverBorderWidth: 2,
+                    pointRadius: 1,
+                    pointHitRadius: 10,
+                }
+            ]
+        })
     }
 
+    useEffect(() => {
+        chart()
+    }, [reps])
 
     return(
-        <>
-        <p>Hello</p>
-        </>
-    )
-    
-
-    // function chart(){
-    //     setChartData({
-    //         labels: dates,
-    //         datasets: [
-    //             {
-    //                 label: 'BMI',
-    //                 data: bmi,
-    //                 fill: false,
-    //                 lineTension: 0.1,
-    //                 backgroundColor: "#2085d8",
-    //                 borderColor: "#2085d8",
-    //                 borderCapStyle: "butt",
-    //                 borderDash: [],
-    //                 borderDashOffset: 0.0,
-    //                 borderJoinStyle: "miter",
-    //                 pointBorderColor: "#2085d8",
-    //                 pointBackgroundColor: "#FFF",
-    //                 pointBorderWidth: 1,
-    //                 pointHoverRadius: 5,
-    //                 pointHoverBackgroundColor: "#2f3640",
-    //                 pointHoverBorderColor: "#2085d8",
-    //                 pointHoverBorderWidth: 2,
-    //                 pointRadius: 1,
-    //                 pointHitRadius: 10,
-    //             }
-    //         ]
-    //     })
-    // }
-
-    // useEffect(() => {
-    //     chart()
-    // }, [ bmi, dates])
-
-    // return(
-    //     <div className="chart">
-    //         <Line 
-    //             data={chartData} 
-    //             options={{
-    //                 responsive: true,
-    //                 title: { text: "DAILY BMI TREND", display:true },       
-    //             }} 
-    //         />
+        <div className="doughnut-chart">
+            <Doughnut
+                data={chartData} 
+                options={{
+                    responsive: true,
+                    title: { text: "TOTAL REPS", display:true },       
+                }} 
+            />
             
-    //     </div>
-    // );
+        </div>
+    );
 }
 
 export default ChartReps;

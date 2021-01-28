@@ -1,6 +1,6 @@
 import React from "react"
 import WorkoutCard from "./WorkoutCard"
-import {Link} from "react-router-dom"
+// import {Link} from "react-router-dom"
 
 
 function WorkoutsList({allWorkouts, onDelete}){
@@ -12,15 +12,8 @@ function WorkoutsList({allWorkouts, onDelete}){
                     onDeleteClick = {onDelete}
             />
     })
-
     return (
-        <>
         <div className="workout-obj-parent">{workoutsObj}</div>    
-        {/* <div><Link to={`/workouts/new`}>
-                Add new workout 
-            </Link>
-        </div>  */}
-            </>  
     )
 }
 

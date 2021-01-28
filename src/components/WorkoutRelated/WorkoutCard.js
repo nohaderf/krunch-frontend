@@ -17,17 +17,14 @@ function WorkoutCard({workout}){
         else {return <p>Add some exercise to this workout!</p>}
     }
 
+
     return (
-        <div className="workouts-card">
-            <h2>
-                <Link to={`/workouts/${id}`}>{name}</Link> 
-            </h2>   
-            
-            <h3>
-                 {date}
-            </h3>
-        </div>
-        
+        <Link to={`/workouts/${id}`}>
+            <div className="workouts-card">
+                <h2>{name}</h2>   
+                <p>{date}</p>
+            </div>
+        </Link>
     )
 }
 

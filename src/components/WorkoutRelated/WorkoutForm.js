@@ -1,5 +1,6 @@
 import React, {useState} from "react"
-import {useHistory} from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
+
 
 
 function WorkoutForm(){
@@ -23,7 +24,6 @@ function WorkoutForm(){
             notes, 
             exercises,
             tag
-
         }
    
             fetch(`http://localhost:3000/workouts/`, {
@@ -44,6 +44,9 @@ function WorkoutForm(){
     return(
         <section>
             <form className="form" onSubmit={handleSubmit}>
+                <Link to={`/workouts`}>
+                    <button className="exit">X</button>
+                </Link>
                 <h3>Create New Workout</h3>
                 <label>
                     Name Your Workout  

@@ -55,7 +55,7 @@ function Home(){
 
            </div> 
            
-           <h1>- <i class="fas fa-map-marker-alt"></i> Gyms Near Me -</h1>
+           {/* <h1>- <i class="fas fa-map-marker-alt"></i> Gyms Near Me -</h1>
             <div className="locations">
                 <div className="location-p">
                 <p>Lack equpiment?</p>
@@ -65,7 +65,7 @@ function Home(){
                 <div className="map-div">
                     <MapContainer />
                 </div>
-            </div>
+            </div> */}
         </div>
         <ScrollToTop />
         </>

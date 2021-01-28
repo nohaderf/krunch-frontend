@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import {Link} from "react-router-dom"
 import WorkoutsList from "./WorkoutsList"
 import Search from "../Search"
+import ChartReps from "./ChartReps"
 
 
 function WorkoutsPage({ allWorkouts }){
@@ -10,7 +11,17 @@ function WorkoutsPage({ allWorkouts }){
     const filterWorkouts = allWorkouts.filter(workout => {
         return workout.name.toLowerCase().includes(search.toLowerCase())
     })
+
+    // const workoutDates = filterWorkouts.map(workout => workout.date)
     
+    // const sortedDates = [...workoutDates].sort((date1, date2) => {
+    //     date1 = date1.split('-').join('')
+    //     date2 = date2.split('-').join('')
+    //     return date1.localeCompare(date2)
+    // })
+
+    // console.log(sortedDates)
+
     return (
         <>
         <div className="page-div">
@@ -18,14 +29,19 @@ function WorkoutsPage({ allWorkouts }){
             <div className="search-bar">
                 <Search search={search} onSearchChange={setSearch}/>
             </div>
-         </div>
+        </div>
+
          <div className="workout-div">
             <div className="workout">
                 <WorkoutsList allWorkouts={filterWorkouts} />
+                <p><Link to={`/workouts/new`}>
+                        <button className="add-new-workout"><strong>ADD NEW WORKOUT</strong></button>
+                    </Link>
+                </p>
             </div>
-            <p><Link to={`/workouts/new`}>
-                <button><strong>ADD NEW WORKOUT</strong></button>
-            </Link></p>
+            <div className="reps-chart">
+                <ChartReps />
+            </div> 
         </div>
         </>
     )

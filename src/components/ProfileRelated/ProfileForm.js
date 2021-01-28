@@ -23,6 +23,7 @@ function ProfileForm(){
     return(
         <section>
             <form className="form" onSubmit={handleSubmit}>
+            <button className="exit" onClick={history.push(`/profile/edit`)}>X</button>
                 <h3>Edit Your Bio</h3>
                     <textarea 
                     type="textarea"
@@ -31,7 +32,7 @@ function ProfileForm(){
                     onChange={(e) => setBio(e.target.value)}
                 /><br></br>
                 <button type="submit">Submit</button>
-                
+    
             </form>
 
         </section>

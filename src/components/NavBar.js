@@ -43,9 +43,6 @@ function NavBar(){
                 </li> 
             </>
         )}
-            
-
-
 
     return (
         <nav className={navBar ? "nav-bar active" : "nav-bar"}>
@@ -60,7 +57,7 @@ function NavBar(){
                 </li>
                 {loggedIn ? headerLinksObj() : history.push(`/`)}         
             </ul>
-            <p onClick={toggle}>{loggedIn ? "LOGOUT" : "LOGIN"}</p>
+            <p className="login" onClick={toggle}>{loggedIn ? "LOGOUT" : "LOGIN"}</p>
         </nav>
     )
 }

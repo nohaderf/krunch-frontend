@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
 import {Link, useParams, useHistory } from "react-router-dom"
+import ScrollToTop from "../ScrollToTop";
 import ChartReps from "./ChartReps";
 import WorkoutDetailCards from "./WorkoutDetailCards";
 
@@ -48,11 +49,6 @@ function WorkoutDetail({ onDeleteClick }){
         console.log(filteredExercises)
     }
     
-
-    
-    
-        
-
     return(
         <>
         <div className="workout-div">
@@ -77,20 +73,23 @@ function WorkoutDetail({ onDeleteClick }){
                         Edit 
                     </Link>
                 </button>
+              
+                <button onClick={handleDeleteWorkout}>Delete</button>
+                            
+                <Link to={`/workouts`}>
+                                <button>Back to Workouts</button>
+                            </Link>        
             </div>
 
             <div className="right-workout-div">
                 <WorkoutDetailCards key={workout.id} workout={workout} exercises={allExercises} handleExerciseRemove={handleExerciseRemove}/>
             </div>                 
         </div>
-    
-             <div className="workout-delete-button">                
-                <button onClick={handleDeleteWorkout}>Delete this Workout</button>
-            </div>  
 
-        <div>
+        <div className="reps-data">
             <ChartReps />
         </div>
+        <ScrollToTop />
         </>
     )
   

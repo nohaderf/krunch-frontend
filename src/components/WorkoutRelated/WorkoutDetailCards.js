@@ -17,13 +17,14 @@ function WorkoutDetailCards({workout, handleExerciseRemove, exercises}){
                              {exercise.exercise}
                             <br></br>
                             <Link to={`/exercises/${exercise.id}`}>
-                                <img src={exercise.example} width="100" height="100"></img>
+                                <img src={exercise.example} width="130" height="100"></img>
                             </Link>
                             <br></br>
                              <button 
+                                className="trash-workout-btn"
                                 data-id={exercise.id}
                                 onClick={handleDeleteExercise}
-                                >Delete
+                                ><i class="fas fa-trash-alt"></i>
                             </button> 
                         </div>
                         </>})}
@@ -49,29 +50,16 @@ function WorkoutDetailCards({workout, handleExerciseRemove, exercises}){
                         const removedID = filtered[0].id
 
                         handleExerciseRemove(removedID, exerID)
-
-                        
-
                     }
-
-
-
-             
                  }
 
 
 
-    return ( <>
-                {exercises[0] ? <h2>You did the following workouts:</h2> : <h2>You should</h2>}
-
-                <div className = "workout-detail-exercise-images">{exerciseObj()}</div>
-
-
-
-    </>
-
-
-
+    return ( 
+        <>
+            {exercises[0] ? <h2>You did the following workouts:</h2> : <h2>You should</h2>}
+            <div className = "workout-detail-exercise-images">{exerciseObj()}</div>
+        </>
     )
 
 
