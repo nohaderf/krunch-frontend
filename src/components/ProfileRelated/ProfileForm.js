@@ -1,5 +1,5 @@
 import React, {useState} from "react"
-import { useHistory} from "react-router-dom"
+import { useHistory, Link} from "react-router-dom"
 
 function ProfileForm(){
     const history = useHistory()
@@ -23,6 +23,8 @@ function ProfileForm(){
     return(
         <section>
             <form className="form" onSubmit={handleSubmit}>
+
+
             <button className="exit" onClick={history.push(`/profile/edit`)}>X</button>
                 <h3>Edit Your Bio</h3>
                     <textarea 
