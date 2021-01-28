@@ -23,12 +23,11 @@ export default function Map({ options, onMount, className, onMountProps }) {
   if (map && typeof onMount === `function`) onMount(map, onMountProps)
   return (
     <div
-      style={{ height: `60vh`, margin: `1em 0`, borderRadius: `0.5em` }}
+      style={{ height: `60vh`, margin: `1em 0`, borderRadius: `0em` }}
       {...{ ref, className }}
     />
   )
 }
-
 
 const getLocation = ( ) => {
     if (navigator.geolocation) {

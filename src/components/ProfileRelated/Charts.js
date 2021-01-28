@@ -32,7 +32,10 @@ function Charts({ user, weights, dates, handleAddWeight }){
             { showWeight ? <Weight weights={weights} dates={dates} /> : <BMI weights={weights} dates={dates} />  }
 
         </div>
-        <button onClick={toggleShowForm} className="add-weight">ADD WEIGHT</button>
+        <div className="add-weight-div">
+          <button onClick={toggleShowForm} className="add-weight-btn">ADD WEIGHT</button>  
+        </div>
+            
         { showForm ? <NewWeightForm user={user} onAddWeight={handleAddWeight} /> : null }
         </>
     )

@@ -1,6 +1,7 @@
 import React from "react"
 import ExerciseCard from "./ExerciseCard"
 import ScrollToTop from "../ScrollToTop"
+import Footer from "../Footer"
 
 
 function ExerciseList({ exercises, wktID }){
@@ -27,6 +28,7 @@ function ExerciseList({ exercises, wktID }){
         <ul className="cards">{exerciseCard}</ul>
         <ScrollToTop />
         </>
+        
       );
 }
 

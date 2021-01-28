@@ -22,6 +22,15 @@ function Profile(){
             setDates(datesArray)
     }
 
+    const sortedDates = [...dates].sort((date1, date2) => {
+        date1 = date1.split('-').join('')
+        date2 = date2.split('-').join('')
+        return date1.localeCompare(date2)
+    })
+
+    
+    console.log(sortedDates)
+
 
     useEffect(() => {
         fetch(`${process.env.REACT_APP_API_BASE_URL}/users/2`)
@@ -33,7 +42,7 @@ function Profile(){
     }, [])
 
     if (!isLoaded) return <h2>Loading...</h2>;
-    console.log(user)
+    // console.log(user)
     const {name, age, bio, height, id} = user
 
     function handleClick(e){
@@ -43,8 +52,8 @@ function Profile(){
     function handleAddWeight(newWeightObj){
         setWeights([...weights, newWeightObj.weight])
         setDates([...dates, newWeightObj.date])
-        console.log([...weights, newWeightObj.weight])
-        console.log([...dates, newWeightObj.date])
+        // console.log([...weights, newWeightObj.weight])
+        // console.log([...dates, newWeightObj.date])
     }
 
     let recentWeight = weights[weights.length - 1]
@@ -73,7 +82,7 @@ function Profile(){
         
             <div className="chart-container">
                 <h1>Track Your Progress</h1>
-                <Charts user={user} weights={weights} dates={dates} handleAddWeight={handleAddWeight} />
+                <Charts user={user} weights={weights} dates={sortedDates} handleAddWeight={handleAddWeight} />
             </div>
         </div>    
     </>

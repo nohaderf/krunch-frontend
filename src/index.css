@@ -12,6 +12,9 @@ body {
   font-size: 0.9em;
 }
 
+::selection {
+  background: orange; 
+}
 *, *::before, *::after {
   box-sizing: inherit;
 }
@@ -56,7 +59,7 @@ a:active {
  /*                       LOGO                         */
  /* ================================================== */
   
-img.logo {
+ img.logo {
   align-items: center;
   display: block;
   max-height: 10%;
@@ -111,6 +114,7 @@ img.logo {
   100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
 
+
  /* ================================================== */
  /*                    NAV BAR                         */
  /* ================================================== */
@@ -120,6 +124,7 @@ img.logo {
   display: flex;
   justify-content: left;
   align-items: center;
+  text-shadow: 0 0 10px rgba(66, 66, 66, 0.849);
   background-color:transparent;
   position: fixed;
   top: 100;
@@ -132,7 +137,7 @@ img.logo {
   background: #000000ec;
 }
 
-.nav-bar a.active {
+ul a.active {
   background-color: #ff8936;
   padding: 10px 10px;
   color: white;
@@ -142,7 +147,6 @@ ul {
   list-style-type: none;
   margin: 0px;
   padding: 0px;
-  display: flex;
 }
 
 ul li {
@@ -174,13 +178,24 @@ ul li {
   color: whitesmoke;
 }
 
+
  /* ================================================== */
  /*                   MAIN CONTAINER                   */
  /* ================================================== */
 
- .main-img {
+ .main-img-1 {
   max-width: 100%;
 }
+
+/* .main-img-2 {
+  max-width: 100%;
+  opacity: 90%;
+  animation: fadeIn 5s infinite alternate;
+  position: absolute;
+  left: -1000%;
+  right: -1000%;
+  margin: auto;
+} */
 
 .slogan { 
   position: absolute;
@@ -204,6 +219,7 @@ ul li {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 25px;
 }
 
 .page-header {
@@ -261,13 +277,6 @@ textarea:focus, input:focus{
  /*                    EXERCISE LIST                   */
  /* ================================================== */
   
-
- .exercise-list {
-  flex-basis: 100%;
-  height: 0;
-  text-align: center;
- }
-
  .cards {
   display: flex;
   justify-content: center;
@@ -296,7 +305,6 @@ textarea:focus, input:focus{
 
 .image-ex {
   background-color: #313131;
-  /* padding: 10px 0px; */
   width: 300px;
   position: absolute;
   left: -1000%;
@@ -495,16 +503,6 @@ button[type="submit"]:active {
   
 }
 
-/* ================================================== */
-/*                         HOME                       */
-/* ================================================== */
-
-.map-div {
-  margin: auto;
-  width: 70%;
-}
-
-
  /* ================================================== */
  /*                        PROFILE                    */
  /* ================================================== */
@@ -514,6 +512,7 @@ button[type="submit"]:active {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 150px;
  }
 
  .user-edit{
@@ -532,13 +531,13 @@ button[type="submit"]:active {
   border-radius: 5px;
 }
 
+/* chart nav buttons */
 .chart-btns-div {
   flex-direction: column;
   float: left;
   margin: 50px -64px;
 }
 
-/* chart nav buttons */
 .chart-btns {
   display: inline;
   float: left;
@@ -559,19 +558,24 @@ li {
   list-style-type:none;
 } 
 
-
-
-.add-weight {
-  float: right;
+.add-weight-div {
   position: relative;
-  bottom: 14%;
-  margin: 30px -80px 0px 0px;
+  size: 10%;
+  flex-direction: column;
+  float: right;
+  margin-right: -90px;
+  
+}
+
+.add-weight-btn {
+  float: right;
+  bottom: 0; 
   background-color: #db0049;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
   padding: 10px 20px;
   font-weight: bold;
-  transform: rotate(90deg)
+  transform: rotate(90deg);
 }
 
 .form-popup{
@@ -598,11 +602,111 @@ li {
   height: 0px;
 
 }
-
  /* ================================================== */
- /*                        FOOTER                     */
+ /*                         HOME                       */
+ /* ================================================== */
+
+.home {
+  text-align: center;
+  font-family: 'Oswald', sans-serif;
+}
+
+.home h1 {
+  margin: 50px;
+}
+
+.home-div {
+  display: flex;
+  text-align: left;
+}
+
+.home-fade-in {
+  display: block;
+  margin: 100px;
+}
+
+.home-img-1 {
+  max-width: 70%;
+  animation: fadeIn 5s infinite alternate;
+}
+
+.home-fade-in ul li {
+  margin: 10px -50px;
+  list-style-type: circle;
+  font-size: large;
+  animation: fadeIn 5s infinite alternate;
+}
+  
+  @keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+  }
+  
+  @-moz-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+  }
+  
+  @-webkit-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+  }
+  
+  @-o-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+  }
+  
+  @-ms-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+  }
+
+  .get-started-btn {
+    margin: 10px -70px;
+    background-color: orange;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 5px;
+    animation: fadeIn 5s infinite alternate;
+  }
+
+  .locations {
+    font-size: large;
+    display: flex;
+    justify-content: right;
+    margin: 0 0 75px 50px;
+    padding: 0 10px;
+  }
+
+ .location-p {
+    font-size: large;
+    display: block;
+    text-align: left;
+    margin: 50px 10px 100px 0px;
+    width: 350px;
+  }
+
+  .map-div {
+    margin-left: 200px;
+    width: 100%;
+  }
+    
+ /* ================================================== */
+ /*                        FOOTER                      */
  /* ================================================== */
 
  .footer-div {
-   height:320px;
+    background-color: black;
+    justify-content: left;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 50px;
+    height: 100px;
+      
+ }
+
+.footer-div p {
+  margin: 10px;
  }
