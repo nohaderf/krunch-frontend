@@ -1,7 +1,5 @@
 import React from "react"
 import WorkoutCard from "./WorkoutCard"
-import {Link} from "react-router-dom"
-
 
 function WorkoutsList({allWorkouts, onDelete}){
 
@@ -14,9 +12,7 @@ function WorkoutsList({allWorkouts, onDelete}){
     })
 
     return (
-        <>
         <div className="workout-obj-parent">{workoutsObj}</div>    
-        </>  
     )
 }
 

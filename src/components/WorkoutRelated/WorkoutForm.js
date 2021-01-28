@@ -1,18 +1,13 @@
 import React, {useState} from "react"
 import {useHistory} from "react-router-dom"
 
-
-function WorkoutForm(){
+function WorkoutForm({addNewWorkout}){
     const history = useHistory()
     const [name, setName] = useState("")
     const [date, setDate] = useState("")
     const [notes, setNotes] = useState("")
     const [tag, setTag] = useState(null)
     const exercises = []
-
-
-    // console.log(params)
-
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -23,7 +18,6 @@ function WorkoutForm(){
             notes, 
             exercises,
             tag
-
         }
    
             fetch(`http://localhost:3000/workouts/`, {
@@ -35,12 +29,11 @@ function WorkoutForm(){
             })
             .then(r => r.json())
             .then((newWorkout) => {
+                addNewWorkout(newWorkout)
                 history.push(`/workouts/${newWorkout.id}`)
             })
-        
     }   
 
-   
     return(
         <section>
             <form className="form" onSubmit={handleSubmit}>
@@ -69,9 +62,7 @@ function WorkoutForm(){
                     <option value="Cardio">Cardio</option>
                     <option value="Legs">Legs</option>
                     <option value="Arms">Arms</option>
-
                 </select>
-
 
                 <br></br>
                 <label>Any notes about the Workout</label>
@@ -82,12 +73,9 @@ function WorkoutForm(){
                     onChange={(e) => setNotes(e.target.value)}
                 /><br></br>
                 <button type="submit">Submit</button>
-                
             </form>
-
         </section>
     )
 }
-
 
 export default WorkoutForm

@@ -1,5 +1,5 @@
 import React, {useState } from "react"
-import {useParams, useHistory} from "react-router-dom"
+import { useHistory} from "react-router-dom"
 
 function WorkoutEditForm(props){
     const history = useHistory()
@@ -8,7 +8,6 @@ function WorkoutEditForm(props){
     const [name, setName] = useState(wkt.name)
     const [date, setDate] = useState(wkt.date)
     const [notes, setNotes] = useState(wkt.notes)
-
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -60,12 +59,10 @@ function WorkoutEditForm(props){
                     onChange={(e) => setNotes(e.target.value)}
                 />
                 <button type="submit">Submit</button>
-                
             </form>
 
         </section>
     )
 }
-
 
 export default WorkoutEditForm

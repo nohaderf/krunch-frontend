@@ -35,6 +35,10 @@ function MainContainer(){
         .then(setAllWorkouts)
     }, [])
 
+    function addNewWorkout(newWorkout){
+        setAllWorkouts([...allWorkouts, newWorkout])
+    }
+
 
     function handleDeleteWorkout(deleteWorkout) {
         const updateWorkoutsList = allWorkouts.filter(workout => {
@@ -63,7 +67,7 @@ function MainContainer(){
                 <WorkoutEditForm />
             </Route>
             <Route exact path="/workouts/new">
-                <EditWorkout/>
+                <EditWorkout addNewWorkout={addNewWorkout}/>
             </Route>
             <Route exact path="/workouts/:id">
                 <WorkoutDetail onDeleteClick={handleDeleteWorkout} />

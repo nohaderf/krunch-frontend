@@ -3,7 +3,6 @@ import {Link} from "react-router-dom"
 import WorkoutsList from "./WorkoutsList"
 import Search from "../Search"
 
-
 function WorkoutsPage({ allWorkouts }){
     const [search, setSearch] = useState("")
 
@@ -19,17 +18,18 @@ function WorkoutsPage({ allWorkouts }){
                 <Search search={search} onSearchChange={setSearch}/>
             </div>
          </div>
-         <div className="add-new-workout-div"><Link to={`/workouts/new`}>
+         <div className="add-new-workout-div">
+             <Link to={`/workouts/new`}>
                 <div className="add-new-workout-button">
                     <div id="translate"></div>
                     <a href="#"><strong>ADD NEW WORKOUT</strong></a>
                 </div>
-            </Link></div>
+            </Link>
+        </div>
          <div className="workout-div">
             <div className="workout">
                 <WorkoutsList allWorkouts={filterWorkouts} />
             </div>
-            
         </div>
         </>
     )
