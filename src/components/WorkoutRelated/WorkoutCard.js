@@ -16,10 +16,11 @@ function WorkoutCard({workout}){
     return (
         <>
         <div class="workout-list-card">
-            <div class="pics_card" >
-                <div class="txt_titre_card"><Link to={`/workouts/${id}`}>{name} on {(date).slice(6,10)}</Link></div>
+            <Link to={`/workouts/${id}`}><div class="pics_card" >
+                <div class="txt_titre_card">{name} on {(date).slice(6,10)}</div>
                 </div>
             <div class="txt_desciption_card">{notes}</div>
+            </Link>
         </div>
         </>
     )

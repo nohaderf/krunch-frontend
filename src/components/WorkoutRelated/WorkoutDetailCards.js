@@ -13,7 +13,7 @@ function WorkoutDetailCards({workout, handleExerciseRemove, exercises}){
                              {exercise.exercise}
                             <br></br>
                             <Link to={`/exercises/${exercise.id}`}>
-                                <img src={exercise.example} width="130" height="100"></img>
+                                <img src={exercise.example} width="140" height="100"></img>
                             </Link>
                             <br></br>
                              <button 

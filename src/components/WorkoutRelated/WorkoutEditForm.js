@@ -35,7 +35,7 @@ function WorkoutEditForm(props){
        return(
         <section>
             <form className="form" onSubmit={handleSubmit}>
-            <Link to={`/workouts`}>
+                <Link to={`/workouts/${wkt.id}`}>
                     <button className="exit">X</button>
                 </Link>
                 <h3>Edit this Workout</h3>
