@@ -318,7 +318,7 @@ textarea:focus, input:focus{
 }
 
 .workout {
-  background-color:rgba(126, 126, 126, 0.3);
+  /* background-color:rgba(126, 126, 126, 0.3); */
   margin: 10px 10px 0px 0px;
 }
 
