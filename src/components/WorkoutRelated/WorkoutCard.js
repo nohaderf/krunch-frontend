@@ -1,12 +1,8 @@
 import React from "react"
 import {Link} from "react-router-dom"
-// import { Route, useRouteMatch } from "react-router-dom";
-
 
 function WorkoutCard({workout}){
-    const {date, name, exercises, id} = workout
-    // console.log(id)
-    
+    const {date, name, exercises, id, notes} = workout 
     
     const exerciseObj = () => {
         if (exercises[0]) {
@@ -19,12 +15,20 @@ function WorkoutCard({workout}){
 
 
     return (
+        <>
         <Link to={`/workouts/${id}`}>
             <div className="workouts-card">
                 <h2>{name}</h2>   
                 <p>{date}</p>
             </div>
         </Link>
+        <div class="workout-list-card">
+            <div class="pics_card" >
+                <div class="txt_titre_card"><Link to={`/workouts/${id}`}>{name} on {(date).slice(6,10)}</Link></div>
+                </div>
+            <div class="txt_desciption_card">{notes}</div>
+        </div>
+        </>
     )
 }
 

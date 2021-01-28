@@ -1,7 +1,5 @@
 import React from "react"
 import WorkoutCard from "./WorkoutCard"
-// import {Link} from "react-router-dom"
-
 
 function WorkoutsList({allWorkouts, onDelete}){
 

@@ -4,7 +4,6 @@ import WorkoutsList from "./WorkoutsList"
 import Search from "../Search"
 import ChartReps from "./ChartReps"
 
-
 function WorkoutsPage({ allWorkouts }){
     const [search, setSearch] = useState("")
 
@@ -29,8 +28,15 @@ function WorkoutsPage({ allWorkouts }){
             <div className="search-bar">
                 <Search search={search} onSearchChange={setSearch}/>
             </div>
+         </div>
+         <div className="add-new-workout-div">
+             <Link to={`/workouts/new`}>
+                <div className="add-new-workout-button">
+                    <div id="translate"></div>
+                    <a href="#"><strong>ADD NEW WORKOUT</strong></a>
+                </div>
+            </Link>
         </div>
-
          <div className="workout-div">
             <div className="workout">
                 <WorkoutsList allWorkouts={filterWorkouts} />
@@ -39,9 +45,6 @@ function WorkoutsPage({ allWorkouts }){
                     </Link>
                 </p>
             </div>
-            <div className="reps-chart">
-                <ChartReps />
-            </div> 
         </div>
         </>
     )
