@@ -10,8 +10,6 @@ function NavBar(){
     const {loggedIn, toggle} = useContext(LoginContext)
     const history = useHistory()
 
-    console.log(loggedIn)
-
     function changeBackground() {
         if (window.scrollY >= 40) {
             setNavBar(true)
