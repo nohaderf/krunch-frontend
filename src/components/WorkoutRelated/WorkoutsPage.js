@@ -19,13 +19,17 @@ function WorkoutsPage({ allWorkouts }){
                 <Search search={search} onSearchChange={setSearch}/>
             </div>
          </div>
+         <div className="add-new-workout-div"><Link to={`/workouts/new`}>
+                <div className="add-new-workout-button">
+                    <div id="translate"></div>
+                    <a href="#"><strong>ADD NEW WORKOUT</strong></a>
+                </div>
+            </Link></div>
          <div className="workout-div">
             <div className="workout">
                 <WorkoutsList allWorkouts={filterWorkouts} />
             </div>
-            <p><Link to={`/workouts/new`}>
-                <button><strong>ADD NEW WORKOUT</strong></button>
-            </Link></p>
+            
         </div>
         </>
     )

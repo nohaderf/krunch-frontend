@@ -27,7 +27,7 @@ function WorkoutDetailCards({workout, handleExerciseRemove, exercises}){
                             </button> 
                         </div>
                         </>})}
-                     else {return <p>You should add some exercises to this workout!</p>}
+                     else {return null}
                 }
 
 
@@ -62,7 +62,7 @@ function WorkoutDetailCards({workout, handleExerciseRemove, exercises}){
 
 
     return ( <>
-                {exercises[0] ? <h2>You did the following workouts:</h2> : <h2>You should</h2>}
+                {exercises[0] ? <h2>You did the following workouts:</h2> : <h2>You should add some exercises to this workout!</h2>}
 
                 <div className = "workout-detail-exercise-images">{exerciseObj()}</div>
 
