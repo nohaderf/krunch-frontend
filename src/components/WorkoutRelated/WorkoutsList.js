@@ -16,10 +16,10 @@ function WorkoutsList({allWorkouts, onDelete}){
     return (
         <>
         <div className="workout-obj-parent">{workoutsObj}</div>    
-        <div><Link to={`/workouts/new`}>
+        {/* <div><Link to={`/workouts/new`}>
                 Add new workout 
             </Link>
-        </div> 
+        </div>  */}
             </>  
     )
 }

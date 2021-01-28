@@ -1,17 +1,13 @@
 import React, {useState} from "react"
 import {useHistory} from "react-router-dom"
-// import {Link} from "react-router-dom"
-
 
 
 function WorkoutForm(){
-    // const [workout, setWorkout] = useState(null);
-    // const params = useParams()
     const history = useHistory()
-
     const [name, setName] = useState("")
     const [date, setDate] = useState("")
     const [notes, setNotes] = useState("")
+    const [tag, setTag] = useState(null)
     const exercises = []
 
 
@@ -25,12 +21,11 @@ function WorkoutForm(){
             name,
             date,
             notes, 
-            exercises
+            exercises,
+            tag
+
         }
-
-
-
-        
+   
             fetch(`http://localhost:3000/workouts/`, {
                 method: "POST",
                 headers: {
@@ -65,7 +60,20 @@ function WorkoutForm(){
                     name="date"
                     value={date}
                     onChange={(e) => setDate(e.target.value)}
-                /><br></br>
+                />
+                <br></br>
+                <select onChange={(e) => setTag(String(e.target.value))}>
+                    <option selected value="null">Workout Type</option>
+                    <option value="Abs">Abs</option>
+                    <option value="Chest">Chest</option>
+                    <option value="Cardio">Cardio</option>
+                    <option value="Legs">Legs</option>
+                    <option value="Arms">Arms</option>
+
+                </select>
+
+
+                <br></br>
                 <label>Any notes about the Workout</label>
                 <textarea 
                     type="textarea"
