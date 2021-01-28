@@ -1,4 +1,5 @@
 import React from "react"
+import ChartReps from "./ChartReps"
 import WorkoutCard from "./WorkoutCard"
 
 function WorkoutsList({allWorkouts, onDelete}){
@@ -11,7 +12,13 @@ function WorkoutsList({allWorkouts, onDelete}){
             />
     })
     return (
-        <div className="workout-obj-parent">{workoutsObj}</div>    
+        <>
+        <div className="workout-obj-parent">{workoutsObj}</div>
+        <div><br></br><br></br></div>
+        <div className="reps-data">
+            <ChartReps/>
+        </div>
+        </>    
     )
 }
 

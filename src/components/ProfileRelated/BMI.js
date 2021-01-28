@@ -6,7 +6,7 @@ function BMI({ weights, dates }){
     const [bmi, setBmi] = useState([])
 
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_API_BASE_URL}/users/1`)
+        fetch(`${process.env.REACT_APP_API_BASE_URL}/users/2`)
         .then(r => r.json())
         .then((userObj) => calculateBMI(userObj.height))
     }, [weights])
