@@ -33,7 +33,7 @@ function Profile(){
 
 
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_API_BASE_URL}/users/2`)
+        fetch(`https://krunch-app.herokuapp.com//users/2`)
         .then(r => r.json())
         .then(data => {
             setUser(data)
