@@ -19,7 +19,7 @@ function NewWeightForm({ user, onAddWeight }){
 
         console.log(formData)
 
-        fetch(`https://krunch-app.herokuapp.com/weights`,{
+        fetch(`${process.env.REACT_APP_API_BASE_URL}/weights`,{
             method: "POST",
             headers: {
                 "Content-Type" : "application/json"

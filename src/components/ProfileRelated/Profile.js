@@ -10,7 +10,7 @@ function Profile(){
 
 
     useEffect(() => {
-        fetch(`https://krunch-app.herokuapp.com/weights`)
+        fetch(`${process.env.REACT_APP_API_BASE_URL}/weights`)
         .then(r => r.json())
         .then((weightObj) => renderWeights(weightObj))
     }, [])
