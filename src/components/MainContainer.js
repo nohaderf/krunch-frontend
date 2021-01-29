@@ -21,16 +21,15 @@ function MainContainer(){
     const [exercises, setExercises] = useState([])
     const [allWorkouts, setAllWorkouts] = useState([])
     
-    
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_API_BASE_URL}/exercises`)
+        fetch(`https://krunch-app.herokuapp.com/exercises`)
         .then(r => r.json())
         .then(setExercises)
     }, [])
 
     // console.log(process.env.REACT_APP_API_BASE_URL)
     useEffect(() => {
-        fetch(`${process.env.REACT_APP_API_BASE_URL}/workouts`)
+        fetch(`https://krunch-app.herokuapp.com/workouts`)
         .then(r => r.json())
         .then(setAllWorkouts)
     }, [])

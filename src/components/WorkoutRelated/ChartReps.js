@@ -6,7 +6,7 @@ function ChartReps(){
     const [reps, setReps] = useState([])
 
     useEffect(() => {
-        fetch(`https://krunch-app.herokuapp.com//workouts`)
+        fetch(`https://krunch-app.herokuapp.com/workouts`)
         .then(r => r.json())
         .then(workoutObj => calcWorkoutData(workoutObj))
     }, [])
