@@ -125,7 +125,8 @@ function ChartReps(){
                 data={chartData} 
                 options={{
                     responsive: true,
-                    title: { text: "TOTAL REPS", display:true },       
+                    title: { text: "TOTAL REPS", display:true, fontColor: "#FFF" },
+                    legend: { labels: {fontColor: "#FFF" }}
                 }} 
             />
             

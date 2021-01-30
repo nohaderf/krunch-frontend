@@ -85,10 +85,7 @@ function WorkoutDetail({ onDeleteClick }){
                 <WorkoutDetailCards key={workout.id} workout={workout} exercises={allExercises} handleExerciseRemove={handleExerciseRemove}/>
             </div>                 
         </div>
-
-        <div className="reps-data">
-            <ChartReps />
-        </div>
+        
         <ScrollToTop />
         </>
     )

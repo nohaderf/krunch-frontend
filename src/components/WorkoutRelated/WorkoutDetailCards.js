@@ -1,38 +1,38 @@
-import React, { useState } from 'react'
-import ExerciseDetail from "../ExerciseRelated/ExerciseDetail"
-import {Link } from "react-router-dom"
+import React from 'react'
 
 function WorkoutDetailCards({workout, handleExerciseRemove, exercises}){
-    const [showExerciseDetails, setShowExerciseDetails] = useState(false)
     const {date, notes, name, WorkoutExercises, id} = workout
-
-    function toggleShowDetails(){
-        setShowExerciseDetails(!showExerciseDetails)
-    }
 
     const exerciseObj = () => {
         if (exercises[0]) {
             return exercises.map(exercise => {
-                return <>
+                return (
+                    <>
                         <div className="wkt-exercise-detail-div" key={exercise.id}> 
-                             {exercise.exercise}
+                            {exercise.exercise}
                             <br></br>
-                            <Link to={`/exercises/${exercise.id}`}>
-                                <img onClick={toggleShowDetails} src={exercise.example} width="140" height="100"></img>
-                            </Link>
-                            <br></br>
-                             <button 
+
+                            <div className="img__wrap"> 
+                                <img className="exercise_img" src={exercise.example}></img>
+                                <div className="img__description_layer">  
+                                    <p className="img__description">Equipment: {exercise.equipment}</p>
+                                    <p className="img__description">Category: {exercise.exerciseType}</p>
+                                <div>  
+                            </div>        
+                    </div>   
+                </div>         
+                            <button 
                                 className="trash-workout-btn"
                                 data-id={exercise.id}
                                 onClick={handleDeleteExercise}
-                                ><i class="fas fa-trash-alt"></i>
+                        ><i class="fas fa-trash-alt"></i>
                             </button> 
                         </div>
-                        </>
+                    </>
+                )
             })
-        }
-                     else {return null}
-                }
+        } else {return null}
+    }
 
                 function handleDeleteExercise(e){
                     // console.log(parseInt(e.target.dataset.id), id)

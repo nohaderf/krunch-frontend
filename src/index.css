@@ -537,9 +537,50 @@ textarea:focus, input:focus{
  /*                  EXERCISE DETAILS                  */
  /* ================================================== */
 
- .exercise-details-div {
-   margin: 50px 100px;
+ .wkt-exercise-detail-div {
+   margin: 0px 5px;
+   justify-content: space-between;
  }
+
+ .img__wrap {
+  position: relative;
+  height: 120px;
+  width: 190px;
+}
+
+ .exercise_img {
+  height: 120px;
+  width: 190px;
+ }
+
+ .img__description_layer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(25, 129, 226, 0.89);
+  color: #fff;
+  visibility: hidden;
+  opacity: 0;
+  align-items: left;
+  justify-content: left;
+  transition: opacity .2s, visibility .2s;
+}
+
+.img__wrap:hover .img__description_layer {
+  visibility: visible;
+  opacity: 1;
+}
+
+.img__description {
+  transition: .2s;
+  transform: translateY(1em);
+}
+
+.img__wrap:hover .img__description {
+  transform: translateY(0);
+}
 
  /* ================================================== */
  /*                    WORKOUTS CARD                   */
@@ -659,8 +700,8 @@ button[type="submit"]:active {
 }
 
 .trash-workout-btn {
-  width: 126px;
-  margin: -10px 5px 10px 5px;
+  width: 176px;
+  margin: 0px 15px 10px 0px;
   height: 12px;
 }
 
