@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
+import ExerciseDetail from "../ExerciseRelated/ExerciseDetail"
 import {Link } from "react-router-dom"
 
 function WorkoutDetailCards({workout, handleExerciseRemove, exercises}){
-
+    const [showExerciseDetails, setShowExerciseDetails] = useState(false)
     const {date, notes, name, WorkoutExercises, id} = workout
+
+    function toggleShowDetails(){
+        setShowExerciseDetails(!showExerciseDetails)
+    }
 
     const exerciseObj = () => {
         if (exercises[0]) {
@@ -13,7 +18,7 @@ function WorkoutDetailCards({workout, handleExerciseRemove, exercises}){
                              {exercise.exercise}
                             <br></br>
                             <Link to={`/exercises/${exercise.id}`}>
-                                <img src={exercise.example} width="140" height="100"></img>
+                                <img onClick={toggleShowDetails} src={exercise.example} width="140" height="100"></img>
                             </Link>
                             <br></br>
                              <button 
@@ -32,7 +37,7 @@ function WorkoutDetailCards({workout, handleExerciseRemove, exercises}){
                 function handleDeleteExercise(e){
                     // console.log(parseInt(e.target.dataset.id), id)
                     const exerID = parseInt(e.target.dataset.id)
-                    fetch(`${process.env.REACT_APP_API_BASE_URL}/workout_exercises/`)
+                    fetch(`https://krunch-app.herokuapp.com/workout_exercises/`)
                     .then(r => r.json())
                     .then(data => findJoin(data))
 

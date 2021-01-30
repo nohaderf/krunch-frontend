@@ -77,8 +77,8 @@ function WorkoutDetail({ onDeleteClick }){
                 <button onClick={handleDeleteWorkout}>Delete</button>
                             
                 <Link to={`/workouts`}>
-                                <button>Back to Workouts</button>
-                            </Link>        
+                    <button>Back to Workouts</button>
+                </Link>        
             </div>
 
             <div className="right-workout-div">
