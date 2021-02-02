@@ -1,3 +1,25 @@
+#Krunch was designed to be an all in one fitness tracking application.
+
+A user is able to view a list of all the exercises they do then add those exercises to specific workouts they do during the week. A user is then able to view statistics on types of workouts they most often participate in, and see a graph of their BMI and weight over time.
+
+
+
+
+
+<a href="https://youtu.be/WJhYYFeTEc4" target="_blank"><img src="http://img.youtube.com/vi/WJhYYFeTEc4/0.jpg" 
+alt="Krunch Demo" width="240" height="180" border="10" /></a>
+
+
+
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
