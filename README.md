@@ -1,6 +1,4 @@
-#Krunch was designed to be an all in one fitness tracking application.
-
-A user is able to view a list of all the exercises they do then add those exercises to specific workouts they do during the week. A user is then able to view statistics on types of workouts they most often participate in, and see a graph of their BMI and weight over time.
+#Krunch is a daily workout and health tracker application built using Ruby on Rails backend and React frontend
 
 
 
