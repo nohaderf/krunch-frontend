@@ -1,3 +1,23 @@
+#Krunch is a daily workout and health tracker application built using Ruby on Rails backend and React frontend
+
+
+
+
+
+<a href="https://youtu.be/WJhYYFeTEc4" target="_blank"><img src="http://img.youtube.com/vi/WJhYYFeTEc4/0.jpg" 
+alt="Krunch Demo" width="240" height="180" border="10" /></a>
+
+
+
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
