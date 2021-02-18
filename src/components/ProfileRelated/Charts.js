@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Weight from "./Weight.js"
 import BMI from "./BMI.js"
 import NewWeightForm from "./NewWeightForm.js"
