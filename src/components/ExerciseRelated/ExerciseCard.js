@@ -37,7 +37,7 @@ function ExerciseCard({ oneExercise, wktID }){
                 <p className="name">{exercise}</p>
                 <span className="category">Category: {exerciseType}    |   <i class="fas fa-info-circle"></i> more info</span>
             </div> : <div className="back-content">
-                <p><span className="back-topic">Equiment:</span> {equipment}</p>
+                <p><span className="back-topic">Equipment:</span> {equipment}</p>
                 <p><span className="back-topic">Major Muscle:</span> {majorMuscle}</p>
                 { minorMuscle ? <p><span className="back-topic">Minor Muscle:</span> {minorMuscle}</p> : null}
                 { notes ? <p><span className="back-topic">Tips:</span> {notes}</p> : "" }
